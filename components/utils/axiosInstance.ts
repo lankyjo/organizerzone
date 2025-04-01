@@ -1,8 +1,10 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
+console.log(process.env.NEXT_PUBLIC_PAGE_BASE_URL);
+
 const axiosInstance = axios.create({
-  baseURL: "https://api-staging.ogaticket.com/api/",
+  baseURL: process.env.NEXT_PUBLIC_BASE_API_URL,
   withCredentials: false,
 });
 

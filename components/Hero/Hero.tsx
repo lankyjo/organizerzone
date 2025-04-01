@@ -5,71 +5,62 @@ import { Box, Image } from "@mantine/core";
 import ReactPlayer from "react-player";
 
 const Hero = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
+  const [videoSrc, setVideoSrc] = useState("");
   useEffect(() => {
-    setTimeout(() => setIsVisible(true), 3000);
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        if (window.innerWidth >= 1024) {
+          setVideoSrc("/hero-desktop1.mp4");
+        } else {
+          setVideoSrc("/placeholder1.mp4");
+        }
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
+  if (!videoSrc) return null;
+
   return (
-    <section className="relative  h-full  md:h-screen  mt-20 md:mt-0">
+    <section className="relative h-full min-h-screen pt-32 pb-10 md:mt-0">
       <div
         id="video-bg"
         className="absolute -z-1   pointer-events-none select-none inset-0 w-full h-full"
         style={{
-          backgroundImage:
-            "https://xvk7p9nq3mw5dt4h.ogaticket.com/_next/image?url=https%3A%2F%2Fstatic.ogaticket.com%2Fevent%2Fad42cc5a-d49d-4854-819c-226893b7f577.jpg&w=640&q=75",
+          backgroundImage: `url("/wizkid.webp")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
-        <div
-          className={`w-full h-full object-cover transition-opacity duration-500 pointer-events-none select-none ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <ReactPlayer
-            url={
-              "https://www.youtube.com/embed/zm96T-_2edI?autoplay=1&mute=1&loop=1&playlist=zm96T-_2edI&controls=0&modestbranding=1&showinfo=0&rel=0&start=0&end=60&iv_load_policy=3&fs=0"
-            }
-            playing={true}
-            muted
-            width={"100%"}
-            height={"100%"}
-            loop={true}
-            fallback={
-              <Image
-                src={"/logo.crop.png"}
-                width={100}
-                height={100}
-                alt="logo"
-              />
-            }
-          />
-        </div>
-        {/* <iframe
-          className={`w-full h-full object-cover transition-opacity duration-500 pointer-events-none select-none ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-          src="https://www.youtube.com/embed/zm96T-_2edI?autoplay=1&mute=1&loop=1&playlist=zm96T-_2edI&controls=0&modestbranding=1&showinfo=0&rel=0&start=0&end=60&iv_load_policy=3&fs=0"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        /> */}
+        <video
+          className="w-full h-full object-cover"
+          loop
+          muted
+          autoPlay
+          playsInline
+          src={videoSrc}
+        />
       </div>
-      <div className=" max-w-[1440px] mx-auto h-full flex flex-col justify-center px-10">
+      <div className=" h-full flex flex-col gap-10 md:gap-0 justify-center px-5 md:px-10 max-w-[1440px]  mx-auto mt-16">
         <div className="  grid  grid-cols-1 md:grid-cols-2">
           <div className="  flex flex-col justify-center items-center w-full  ">
-            <div className="flex flex-col justify-center items-center  md:items-start gap-8    md:mr-12 sm:mr-0">
-              <h1 className="  uppercase text-white  text-4xl text-center md:text-left md:text-6xl font-extrabold  ">
+            <div className="flex flex-col justify-center  gap-8    md:mr-12 sm:mr-0">
+              <h1 className="  uppercase text-white  text-4xl  md:text-left md:text-6xl font-extrabold  ">
                 where music comes alive
               </h1>
-              <p className=" text-center md:text-left">
+              <p className=" max-w-[25rem]">
                 Stay updated on the latest events, explore artist lineups, and
                 immerse yourself in the magic of live music, where every beat
                 and melody brings the stage to life.
               </p>
-              <div className=" my-10">
+              <div className=" my-5">
                 <button
                   id="CTA"
                   className="px-5 py-2 bg-primary text-gray-950 rounded-3xl cursor-pointer duration-300 hover:text-white"
@@ -80,7 +71,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <Box className="  w-full   grid  gap-6 grid-cols-1 md:grid-cols-4    items-end">
+        <Box className=" w-full grid gap-6 grid-cols-1 md:grid-cols-4 md:items-end items-center">
           <Performance
             count={150}
             title="Upcoming Concert"
@@ -107,8 +98,9 @@ const Hero = () => {
 
           <Box>
             <Image
+              alt="circ-image"
               radius="md"
-              h={200}
+              // h={200}
               src="data:image/jpeg;base64,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"
             />
           </Box>

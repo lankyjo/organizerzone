@@ -25,30 +25,36 @@ export default function Performance({
   }, [value, count]);
 
   return (
-    <Box className="  flex md:flex-col gap-6   ">
+    <div className="  flex md:flex-col gap-4">
       <Avatar.Group>
         {images?.map((image, index) => (
           <Avatar
             key={index}
             src={image}
-            className="    rounded-full "
+            className="rounded-full border-4 border-[white] "
             size="lg"
+            styles={{
+              root: {
+                border: "2px solid white",
+                padding: "10px",
+              },
+            }}
           />
         ))}
       </Avatar.Group>
-      <div className="      flex     gap-5    w-full items-center">
+      <div className="flex gap-4  items-center max-w-[14rem]">
         <div>
-          <h3 className=" text-2xl md:text-4xl font-extrabold self-center ">
-            {value}
+          <h3 className=" text-base md:text-3xl font-extrabold self-center ">
+            {count}
             <span className=" text-sm font-extrabold  ">+</span>
           </h3>
         </div>
         <div>
-          <h5 className=" text-lg md:text-2xl  font-normal md:font-bold        self-center   ">
+          <h5 className=" text-sm md:text-xl font-normal md:font-bold        self-center   ">
             {title}
           </h5>
         </div>
       </div>
-    </Box>
+    </div>
   );
 }

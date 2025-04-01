@@ -5,14 +5,19 @@ import useAppContext from "@/components/utils/hooks/useAppContext";
 import useFormatEventData from "@/components/utils/hooks/useFormatEvent";
 import useGetter from "@/components/utils/hooks/useGetter";
 import { useContext, useEffect } from "react";
+import Artist from "@/components/Artist/Artist";
+import TicketsSection from "@/components/Ticket-section/TicketsSection";
+import CountDown from "@/components/CountDown/CountDown";
 
 export default function Home() {
   const { setEvents, setOrganizer } = useAppContext();
   const { data: eventData } = useGetter(
-    "event/user-events/66d8d5ee16a12f0832b9d48d?page=1&size=100"
+    `event/user-events/${process.env.NEXT_PUBLIC_USER_ID}`
   );
   const events = useFormatEventData(eventData?.data);
-  const { data: user } = useGetter("user/public?usernameSlug=chileo");
+  const { data: user } = useGetter(
+    `user/public?usernameSlug=${process.env.NEXT_PUBLIC_USER_NAME}`
+  );
 
   useEffect(() => {
     if (events?.length) {
@@ -27,8 +32,11 @@ export default function Home() {
     <>
       <main className="min-h-[2000px]">
         <Nav />
-        <section className="  w-full mx-auto">
-          <Hero />
+        <Hero />
+        <section className="  w-full ">
+          <Artist />
+          <TicketsSection />
+          <CountDown />
         </section>
       </main>
     </>
