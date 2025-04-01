@@ -4,6 +4,7 @@ import Nav from "@/components/Navigation/Nav";
 import Artist from '@/components/Artist/Artist'
 import TicketsSection from "@/components/Ticket-section/TicketsSection";
 import CountDown from "@/components/CountDown/CountDown";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           <TicketsSection/>
           <CountDown/>
         </section>
+        <Footer/>
       </main>
     </>
   );
