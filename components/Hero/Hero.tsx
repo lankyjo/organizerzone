@@ -42,12 +42,13 @@ const Hero = () => {
           playsInline
           src={videoSrc}
         />
+        <div className="absolute inset-0 h-full w-full bg-black/30"></div>
       </div>
       <div className=" h-full flex flex-col gap-10 md:gap-0 justify-center px-5 md:px-10">
-        <div className="  grid  grid-cols-1 md:grid-cols-2">
+        <div className="  grid grid-cols-1 md:grid-cols-2">
           <div className="  flex flex-col justify-center items-center w-full  ">
-            <div className="flex flex-col justify-center items-center  md:items-start gap-8    md:mr-12 sm:mr-0">
-              <h1 className="  uppercase text-white  text-4xl text-center md:text-left md:text-6xl font-extrabold  ">
+            <div className="flex flex-col justify-center items-center md:items-start gap-8 max-w-[500px] border-2 sm:mr-0">
+              <h1 className="  uppercase text-white text-4xl text-center md:text-left md:text-6xl font-extrabold  ">
                 where music comes alive
               </h1>
               <p className=" text-center md:text-left">

@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <main className="min-h-[2000px]">
         <Nav />
-        <section className=" max-w-[1440px] w-full mx-auto">
+        <section className="w-full mx-auto">
           <Hero />
           <Artist/>
           <TicketsSection/>

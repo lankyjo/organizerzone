@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaSpotify, FaTwitter, FaYoutube } from "react-
 const Footer = () => {
   return (
     <footer className='padding text-white space-y-20'>
-        <div className='grid items-baseline grid-cols-3 max-lg:gap-5 max-md:grid-cols-1 max-lg:grid-cols-2'>
+        <div className='grid items-baseline grid-cols-3 max-lg:gap-5 max-md:grid-cols-1 max-lg:grid-cols-3'>
         <div id='logo' className='space-y-5'>
         <h1 className="text-3xl uppercase font-bold">
               <span className="text-primary">O</span>rganizer
