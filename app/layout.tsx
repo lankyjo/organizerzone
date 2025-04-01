@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins, Roboto } from "next/font/google";
 import "./globals.css";
-import { createTheme, MantineProvider } from "@mantine/core";
+import {  MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import TempValueProvider from "@/components/utils/contextAPI/TempValueContext";
 const geistSans = Geist({
@@ -47,12 +47,7 @@ export default function RootLayout({
           </MantineProvider>
         </TempValueProvider>
       </body>
-      {/* <body
-        suppressHydrationWarning={true}
-        className={`${poppins.variable} ${roboto.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body> */}
+
     </html>
   );
 }
