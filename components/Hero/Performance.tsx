@@ -1,4 +1,4 @@
-import { Avatar, Box, Text } from "@mantine/core";
+import { Avatar, Box } from "@mantine/core";
 import React from "react";
 
 export default function Performance({
@@ -11,26 +11,26 @@ export default function Performance({
   images: [string, string, string];
 }) {
   return (
-    <Box className="  flex md:flex-col gap-6   ">
+    <Box className="  flex md:flex-col gap-4 items-start ">
       <Avatar.Group>
         {images?.map((image, index) => (
           <Avatar
             key={index}
             src={image}
-            className="    rounded-full "
+            className="rounded-full border-4"
             size="lg"
           />
         ))}
       </Avatar.Group>
-      <div className="      flex     gap-5    w-full items-center">
+      <div className="flex gap-4  items-center">
         <div>
-          <h3 className=" text-2xl md:text-4xl font-extrabold self-center ">
+          <h3 className=" text-base md:text-3xl font-extrabold self-center ">
             {count}
             <span className=" text-sm font-extrabold  ">+</span>
           </h3>
         </div>
         <div>
-          <h5 className=" text-lg md:text-2xl  font-normal md:font-bold        self-center   ">
+          <h5 className=" text-sm md:text-xl font-normal md:font-bold        self-center   ">
             {title}
           </h5>
         </div>

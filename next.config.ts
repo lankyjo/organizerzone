@@ -29,6 +29,12 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "templates.lubnaloom.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

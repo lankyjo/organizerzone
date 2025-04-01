@@ -4,7 +4,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #42F02B;
+  --primary: rgb(239 121 13);
 }
 
 @theme inline {
@@ -14,14 +14,13 @@
   --font-mono: var(--font-geist-mono);
   --color-primary: var(--primary);
 }
-/* @layer components{
-  .labels{
-    @apply block
+
+@layer components{
+  .padding{
+    @apply p-5 md:p-10;
   }
-  .inputs{
-    @apply border border-gray-950 rounded-md !w-full p-2 placeholder:text-sm placeholder:text-gray-300
-  }
-} */
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
