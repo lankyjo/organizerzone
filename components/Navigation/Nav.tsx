@@ -58,7 +58,7 @@ const Nav = () => {
               className="px-5 py-2 bg-primary text-gray-950 rounded-3xl cursor-pointer duration-300 hover:text-white hidden  md:block"
               style={{ opacity: buttonOpacity }}
             >
-              <Link href="/">Explore Concert</Link>
+              <Link href="/"> Get started</Link>
             </button>
           </div>
         </nav>

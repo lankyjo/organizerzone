@@ -46,6 +46,12 @@ interface OTPValues {
 interface TempValueType {
   val: any;
   setVal: (val: any) => void;
+  val: string;
+  setVal: (val: string) => void;
+  organizer: OrganizerProps;
+  setOrganizer: (organizer: OrganizerProps) => void;
+  events: EventProps[];
+  setEvents: (events: EventProps[]) => void;
 }
 
 interface PostToEmailProps {

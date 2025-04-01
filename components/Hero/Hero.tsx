@@ -48,11 +48,11 @@ const Hero = () => {
           src={videoSrc}
         />
       </div>
-      <div className=" h-full flex flex-col gap-10 md:gap-0 justify-center px-5 md:px-10 max-w-[1440px]  mx-auto mt-16">
-        <div className="  grid  grid-cols-1 md:grid-cols-2">
-          <div className="  flex flex-col justify-center items-center w-full  ">
-            <div className="flex flex-col justify-center  gap-8    md:mr-12 sm:mr-0">
-              <h1 className="  uppercase text-white  text-4xl  md:text-left md:text-6xl font-extrabold  ">
+      <div className=" h-full flex flex-col  gap-10 md:gap-0   h-fulljustify-center px-5 md:px-10 max-w-[1440px]  mx-auto mt-[5%]">
+        <div className="  grid  grid-cols-1 md:grid-cols-2 ">
+          <div className="  flex flex-col justify-center items-center w-full   ">
+            <div className="flex flex-col justify-center  gap-10    md:mr-12 sm:mr-0">
+              <h1 className=" uppercase text-white  text-3xl  md:text-left md:text-6xl font-extrabold  ">
                 where music comes alive
               </h1>
               <p className=" max-w-[25rem]">
@@ -65,7 +65,7 @@ const Hero = () => {
                   id="CTA"
                   className="px-5 py-2 bg-primary text-gray-950 rounded-3xl cursor-pointer duration-300 hover:text-white"
                 >
-                  Get started
+                  Explore Concert
                 </button>
               </div>
             </div>

@@ -15,7 +15,7 @@ export default function Performance({
   useEffect(() => {
     const interval = setTimeout(() => {
       setValue((prev) => prev + 1);
-    }, 5);
+    }, 2);
 
     if (value >= count) {
       clearInterval(interval);
@@ -32,7 +32,7 @@ export default function Performance({
             key={index}
             src={image}
             className="rounded-full border-4 border-[white] "
-            size="lg"
+            size={65}
             styles={{
               root: {
                 border: "2px solid white",
@@ -45,7 +45,7 @@ export default function Performance({
       <div className="flex gap-4  items-center max-w-[14rem]">
         <div>
           <h3 className=" text-base md:text-3xl font-extrabold self-center ">
-            {count}
+            {value}
             <span className=" text-sm font-extrabold  ">+</span>
           </h3>
         </div>

@@ -34,12 +34,14 @@ export default function Home() {
       <main className="min-h-[2000px]">
         <Nav />
         <Hero />
-        <section className="  w-full ">
-          <Artist />
-          <TicketsSection />
-          <CountDown />
-        </section>
-        <Footer/>
+        <div className="bg-black  w-full">
+          <section className="  w-full max-w-[1440px] mx-auto ">
+            <Artist />
+            <TicketsSection />
+            <CountDown />
+            <Footer />
+          </section>
+        </div>
       </main>
     </>
   );

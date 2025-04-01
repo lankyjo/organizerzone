@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins, Roboto } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Roboto, Inter } from "next/font/google";
 import "./globals.css";
-import {  MantineProvider } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import TempValueProvider from "@/components/utils/contextAPI/TempValueContext";
 const geistSans = Geist({
@@ -26,6 +26,12 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
+});
+
 export const metadata: Metadata = {
   title: "Organizer Zone",
   description: "This is the organizer event zone",
@@ -39,7 +45,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${roboto.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        // className={`${poppins.variable} ${roboto.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={inter.variable}
       >
         <TempValueProvider>
           <MantineProvider defaultColorScheme="auto">
@@ -47,7 +54,6 @@ export default function RootLayout({
           </MantineProvider>
         </TempValueProvider>
       </body>
-
     </html>
   );
 }
