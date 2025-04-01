@@ -33,14 +33,22 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+<<<<<<< HEAD
     "@types/node": "^22",
+=======
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^20",
+>>>>>>> 77f60b76eae6e13ac7c9b34f2a6478949b1af4f9
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
+<<<<<<< HEAD
     "postcss": "^8.5.3",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
+=======
+>>>>>>> 77f60b76eae6e13ac7c9b34f2a6478949b1af4f9
     "tailwindcss": "^4",
     "typescript": "^5"
   }
