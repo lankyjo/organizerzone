@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -13,7 +12,14 @@
   --font-mono: var(--font-geist-mono);
   --color-primary: var(--primary);
 }
-
+/* @layer components{
+  .labels{
+    @apply block
+  }
+  .inputs{
+    @apply border border-gray-950 rounded-md !w-full p-2 placeholder:text-sm placeholder:text-gray-300
+  }
+} */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -26,3 +32,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* .iti {
+  --iti-path-flags-1x: url('path/to/flags.webp');
+  --iti-path-flags-2x: url('path/to/flags@2x.webp');
+  --iti-path-globe-1x: url('path/to/globe.webp');
+  --iti-path-globe-2x: url('path/to/globe@2x.webp');
+} */
