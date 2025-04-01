@@ -1,5 +1,5 @@
-import { Avatar, Box } from "@mantine/core";
-import React from "react";
+import { Avatar, Box, Text } from "@mantine/core";
+import React, { useEffect, useState } from "react";
 
 export default function Performance({
   count,
@@ -10,22 +10,42 @@ export default function Performance({
   title: string;
   images: [string, string, string];
 }) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      setValue((prev) => prev + 1);
+    }, 2);
+
+    if (value >= count) {
+      clearInterval(interval);
+    }
+
+    return () => clearInterval(interval);
+  }, [value, count]);
+
   return (
-    <Box className="  flex md:flex-col gap-4 items-start ">
+    <div className="  flex md:flex-col gap-4">
       <Avatar.Group>
         {images?.map((image, index) => (
           <Avatar
             key={index}
             src={image}
-            className="rounded-full border-4"
-            size="lg"
+            className="rounded-full border-4 border-[white] "
+            size={65}
+            styles={{
+              root: {
+                border: "2px solid white",
+                padding: "10px",
+              },
+            }}
           />
         ))}
       </Avatar.Group>
-      <div className="flex gap-4  items-center">
+      <div className="flex gap-4  items-center max-w-[14rem]">
         <div>
           <h3 className=" text-base md:text-3xl font-extrabold self-center ">
-            {count}
+            {value}
             <span className=" text-sm font-extrabold  ">+</span>
           </h3>
         </div>
@@ -35,6 +55,6 @@ export default function Performance({
           </h5>
         </div>
       </div>
-    </Box>
+    </div>
   );
 }
