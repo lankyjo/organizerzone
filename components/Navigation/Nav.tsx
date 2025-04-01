@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import NavDraw from "./NavDraw";
 import NavItem from "./NavItem";
+import { Avatar } from "@mantine/core";
 
 const Nav = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -45,13 +46,21 @@ const Nav = () => {
             className="  cursor-pointer md:hidden"
           />
 
-          <button
-            id="CTA"
-            className="px-5 py-2 bg-primary text-gray-950 rounded-3xl cursor-pointer duration-300 hover:text-white hidden  md:block"
-            style={{ opacity: buttonOpacity }}
-          >
-            <Link href="/">Explore Concert</Link>
-          </button>
+          <div className="  items-center gap-2 hidden md:flex">
+            <Avatar
+              variant="filled"
+              radius="xl"
+              size={33}
+              className=" cursor-pointer"
+            />
+            <button
+              id="CTA"
+              className="px-5 py-2 bg-primary text-gray-950 rounded-3xl cursor-pointer duration-300 hover:text-white hidden  md:block"
+              style={{ opacity: buttonOpacity }}
+            >
+              <Link href="/">Explore Concert</Link>
+            </button>
+          </div>
         </nav>
       </header>
       <NavDraw opened={opened} close={close} />

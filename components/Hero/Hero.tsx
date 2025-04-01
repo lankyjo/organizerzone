@@ -1,8 +1,8 @@
 "use client";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import Performance from "./Performance";
 import { Box, Image } from "@mantine/core";
+import ReactPlayer from "react-player";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +21,31 @@ const Hero = () => {
             "https://xvk7p9nq3mw5dt4h.ogaticket.com/_next/image?url=https%3A%2F%2Fstatic.ogaticket.com%2Fevent%2Fad42cc5a-d49d-4854-819c-226893b7f577.jpg&w=640&q=75",
         }}
       >
-        <iframe
+        <div
+          className={`w-full h-full object-cover transition-opacity duration-500 pointer-events-none select-none ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <ReactPlayer
+            url={
+              "https://www.youtube.com/embed/zm96T-_2edI?autoplay=1&mute=1&loop=1&playlist=zm96T-_2edI&controls=0&modestbranding=1&showinfo=0&rel=0&start=0&end=60&iv_load_policy=3&fs=0"
+            }
+            playing={true}
+            muted
+            width={"100%"}
+            height={"100%"}
+            loop={true}
+            fallback={
+              <Image
+                src={"/logo.crop.png"}
+                width={100}
+                height={100}
+                alt="logo"
+              />
+            }
+          />
+        </div>
+        {/* <iframe
           className={`w-full h-full object-cover transition-opacity duration-500 pointer-events-none select-none ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
@@ -31,9 +55,9 @@ const Hero = () => {
           allow="autoplay; encrypted-media"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
-        />
+        /> */}
       </div>
-      <div className=" h-full flex flex-col justify-center px-10">
+      <div className=" max-w-[1440px] mx-auto h-full flex flex-col justify-center px-10">
         <div className="  grid  grid-cols-1 md:grid-cols-2">
           <div className="  flex flex-col justify-center items-center w-full  ">
             <div className="flex flex-col justify-center items-center  md:items-start gap-8    md:mr-12 sm:mr-0">
