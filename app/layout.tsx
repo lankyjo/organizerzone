@@ -14,6 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Organizer Zone",
   description: "This is the organizer event zone",
+  icons: "/next.svg",
 };
 
 export default function RootLayout({
