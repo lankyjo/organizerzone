@@ -13,9 +13,9 @@ const fields = [
 export default function LoginPage() {
   return (
     <section className="w-full h-dvh lg:p-0 md:p-10 p-5 relative flex justify-center items-center lg:text-gray-900 text-white">
-      <div className="bg-white/30 backdrop-blur-xl w-full rounded-lg p-10 lg:p-0 lg:px-10 lg:py-6 lg:overflow-y-auto flex-1/2 space-y-2 flex justify-center items-center flex-col lg:space-y-3 lg:h-full lg:rounded-none lg:bg-white/90">
+      <div className="bg-white/30 backdrop-blur-xl w-full rounded-lg p-10 lg:p-0 lg:px-10 lg:py-6 lg:overflow-y-auto flex-1/2 space-y-2 flex justify-center items-center flex-col lg:space-y-3 lg:h-full lg:rounded-none lg:bg-gray-100">
         <form className="space-y-3 w-full max-w-[500px] mx-auto">
-          <h1 className="text-3xl capitalize">Login</h1>
+          <h1 className="text-3xl uppercase font-anton">Login</h1>
           {fields.map((field) => (
             <InputField
               key={field.placeholder}
@@ -62,7 +62,9 @@ export default function LoginPage() {
         </div> */}
       </div>
 
-      <div className="absolute select-none inset-0 -z-[1] lg:relative lg:flex-1/2 lg:h-full">
+      <div className="absolute select-none inset-0 -z-[1] lg:relative lg:flex-1/2 lg:h-full"
+        style={{ backgroundImage: `url("/wizkid.webp")`, backgroundSize: 'cover' }}
+        >
         <video className="w-full h-full object-cover" muted autoPlay loop>
           <source src="/placeholder1.mp4" />
         </video>
@@ -92,7 +94,7 @@ const InputField = ({ type, placeholder, label }: InputProps) => {
         {label}
       </label>
       <input
-        className="border border-white lg:border-gray-500 rounded-md w-full p-2 placeholder:text-xs placeholder:text-gray-300"
+        className="border border-white lg:border-gray-500 rounded-md w-full p-2 placeholder:text-xs placeholder:text-gray-500"
         type={type}
         id={label}
         placeholder={placeholder}

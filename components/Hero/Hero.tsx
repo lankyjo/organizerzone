@@ -95,7 +95,7 @@ const Hero = () => {
           />
 
           <Box className="relative rounded-3xl overflow-hidden">
-            {/* Add the VideoCard Component Here */}
+            
             <VideoCard
               video={{ id: "event1", videoUrl: "https://www.youtube.com/embed/zm96T-_2edI" }}
               isPlaying={playingVideo === "event1"} // Only play if the current video ID matches
