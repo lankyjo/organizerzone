@@ -1,6 +1,5 @@
 "use client";
-import { Box, PasswordInput } from "@mantine/core";
-import Link from "next/link";
+import { PasswordInput } from "@mantine/core";
 
 export default function ResetPassword() {
   return (
@@ -13,7 +12,7 @@ export default function ResetPassword() {
             label="New password"
             placeholder="*****************"
             radius={8}
-            styles={(theme) => ({
+            styles={() => ({
               input: {
                 borderColor: "black",
                 marginTop: 4,
@@ -42,7 +41,7 @@ export default function ResetPassword() {
             label="Confirm password"
             placeholder="*****************"
             radius={8}
-            styles={(theme) => ({
+            styles={() => ({
               input: {
                 borderColor: "black",
                 marginTop: 4,

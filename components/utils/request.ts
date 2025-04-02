@@ -157,17 +157,6 @@ export async function urlToFile(url: string, filename: string) {
   return new File([blob], filename, { type: blob.type });
 }
 
-export async function fetchImageAsBlob(url: string) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Network response was not ok");
-
-    const blob = await response.blob();
-
-    return blob;
-  } catch (error) {}
-}
-
 export async function getterImage(url: string) {
   const response = await axiosInstance.get(url, { responseType: "blob" });
   return response;

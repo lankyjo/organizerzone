@@ -4,7 +4,7 @@ import Nav from "@/components/Navigation/Nav";
 import useAppContext from "@/components/utils/hooks/useAppContext";
 import useFormatEventData from "@/components/utils/hooks/useFormatEvent";
 import useGetter from "@/components/utils/hooks/useGetter";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import Artist from "@/components/Artist/Artist";
 import TicketsSection from "@/components/Ticket-section/TicketsSection";
 import CountDown from "@/components/CountDown/CountDown";
@@ -27,6 +27,7 @@ export default function Home() {
     if (user?.data) {
       setOrganizer(user?.data);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [events, user?.data]);
 
   return (

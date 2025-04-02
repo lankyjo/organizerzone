@@ -1,8 +1,9 @@
 "use client";
-import { ActionIcon, Box, Group } from "@mantine/core";
-import Image from "next/image";
+import { Box } from "@mantine/core";
+// import { ActionIcon, Box, Group } from "@mantine/core";
+// import Image from "next/image";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 
 const fields = [
   { type: "email", placeholder: "Enter your email", label: "Email Address" },

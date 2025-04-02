@@ -1,6 +1,3 @@
-import { Box } from "@mantine/core";
-import Link from "next/link";
-
 export default function VerifyEmail() {
   return (
     <section className="w-full h-dvh lg:p-0 md:p-10 p-5 relative flex justify-center items-center lg:text-gray-900 text-white">

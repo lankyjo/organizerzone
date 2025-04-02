@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import Performance from "./Performance";
 import { Box, Image } from "@mantine/core";
-import ReactPlayer from "react-player";
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState("");
@@ -94,7 +93,7 @@ const Hero = () => {
           <Performance
             count={1000}
             title="Ticket Sold"
-            images={["ticket1.PNG", "ticket2.PNG", "ticket3.PNG"]}
+            images={["/ticket1.PNG", "/ticket2.PNG", "/ticket3.PNG"]}
           />
 
           <Box>
