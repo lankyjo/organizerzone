@@ -25,7 +25,7 @@ export default function Performance({
   }, [value, count]);
 
   return (
-    <div className="  flex md:flex-col gap-4">
+    <div className="relative -z-10 flex md:flex-col gap-4">
       <Avatar.Group>
         {images?.map((image, index) => (
           <Avatar

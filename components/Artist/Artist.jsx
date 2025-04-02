@@ -4,11 +4,12 @@ import React from "react";
 import { FaSpotify } from "react-icons/fa";
 const Artist = () => {
   return (
-    <section className="padding overflow-hidden w-full bg-black flex flex-col md:flex-row gap-10 justify-between text-white">
+    <section className="padding w-full bg-black text-white">
+      <div className="contain flex flex-col md:flex-row gap-10 justify-between">
       <div className="max-w-xl space-y-14">
-        <div>
+        <div className="space-y-2">
           <p className="text-gray-400 tracking-widest">Wizkid</p>
-          <h2 className="text-4xl uppercase font-bold md:text-6xl">
+          <h2 className="text-4xl font-anton uppercase font-bold md:text-6xl">
             This Month’s Must-See Live Performance
           </h2>
         </div>
@@ -19,21 +20,21 @@ const Artist = () => {
           recognized for her ability to connect deeply with her audience.
         </p>
         <div>
-          <button className="bg-primary px-5 py-2 rounded-4xl text-gray-950">
+          <button className="bg-primary px-5 py-2 rounded-4xl text-white">
             <Link href={"/"}>Get ticket</Link>
           </button>
         </div>
       </div>
 
-      <div className="w-full max-w-[500px] mx-auto aspect-[3/4] md:aspect-[2/3] relative">
-        <Image
+      <div className="w-full h-[500px] md:h-[600px] max-w-[500px] md:max-w-[500px] relative overflow-visible">
+      <Image
           alt="artist image"
           fill
           src={"/wizkid.webp"}
           className="absolute object-cover inset-0 rounded-xl"
         />
 
-        <div className="bg-white/50 absolute text-black md:-left-20 -left-10 md:bottom-28 bottom-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
+        <div className="bg-white/50 absolute text-black md:-left-20 -left-5 md:bottom-30 bottom-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
           <div>
             <FaSpotify className="md:text-5xl text-3xl text-primary" />
           </div>
@@ -50,6 +51,8 @@ const Artist = () => {
             <span className="uppercase">Hits</span>
           </div>
         </div>
+      </div>
+      
       </div>
     </section>
   );

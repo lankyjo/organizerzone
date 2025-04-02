@@ -33,7 +33,7 @@ const TicketsSection = () => {
     <section className='padding bg-black text-gray-200 space-y-10'>
         <div className='text-center'>
             <p className='uppercase font-bold text-sm'>concert schedules</p>
-            <h3 className='text-4xl uppercase font-bold'>countdown your next favorite concert</h3>
+            <h3 className='text-4xl font-anton uppercase font-bold'>countdown your next favorite concert</h3>
         </div>
 
         <ul className='space-y-10'>

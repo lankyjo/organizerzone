@@ -2,43 +2,30 @@
 import { useEffect, useState } from "react";
 import Performance from "./Performance";
 import { Box, Image } from "@mantine/core";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState("");
   useEffect(() => {
     const handleResize = () => {
-      if (typeof window !== "undefined") {
-        if (window.innerWidth >= 1024) {
-          setVideoSrc("/hero-desktop1.mp4");
-        } else {
-          setVideoSrc("/placeholder1.mp4");
-        }
-      }
+      setVideoSrc(window.innerWidth >= 1024 ? "/hero-desktop1.mp4" : "/placeholder1.mp4");
     };
-
-    handleResize();
-
+  
+    handleResize(); // Set initial state
     window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+  
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   if (!videoSrc) return null;
 
   return (
-    <section className="relative h-full min-h-screen pt-32 pb-10 md:mt-0">
-      <div
-        id="video-bg"
-        className="absolute -z-1   pointer-events-none select-none inset-0 w-full h-full"
-        style={{
-          backgroundImage: `url("/wizkid.webp")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+    <section className="relative z-10 h-full min-h-screen pt-32 pb-10 md:mt-0">
+        <div
+          id="video-bg"
+          className="absolute inset-0 -z-[2] w-full h-full bg-cover bg-center"
+          style={{ backgroundImage: `url("/wizkid.webp")` }}
+        >
         <video
           className="w-full h-full object-cover"
           loop
@@ -47,13 +34,13 @@ const Hero = () => {
           playsInline
           src={videoSrc}
         />
-        <div className="absolute inset-0 h-full w-full bg-black/30"></div>
       </div>
-      <div className=" h-full flex flex-col  gap-10 md:gap-0   h-fulljustify-center px-5 md:px-10 max-w-[1440px]  mx-auto mt-[5%]">
+      <div className="absolute inset-0 bg-black/80 z-10"></div>
+      <div className="relative z-50 h-full flex flex-col contain gap-10 md:gap-0 justify-center px-5 md:px-10  mx-auto mt-[5%]">
         <div className="  grid  grid-cols-1 md:grid-cols-2 ">
-          <div className="  flex flex-col justify-center items-center w-full   ">
-            <div className="flex flex-col justify-center  gap-10    md:mr-12 sm:mr-0">
-              <h1 className=" uppercase text-white  text-3xl  md:text-left md:text-6xl font-extrabold  ">
+          <div className="  flex flex-col justify-center items-center w-full">
+            <div className="flex flex-col justify-center gap-10 sm:mr-0">
+              <h1 className="font-anton uppercase text-white  text-4xl font-bold md:text-6xl">
                 where music comes alive
               </h1>
               <p className=" max-w-[25rem]">
@@ -64,7 +51,7 @@ const Hero = () => {
               <div className=" my-5">
                 <button
                   id="CTA"
-                  className="px-5 py-2 bg-primary text-gray-950 rounded-3xl cursor-pointer duration-300 hover:text-white"
+                  className="px-5  py-2 bg-primary text-white rounded-3xl cursor-pointer duration-300 hover:text-white"
                 >
                   Explore Concert
                 </button>
@@ -72,8 +59,8 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <Box className=" w-full grid gap-6 grid-cols-1 md:grid-cols-4 md:items-end items-center">
-          <Performance
+        <Box className="font-anton w-full mt-5 grid gap-6 grid-cols-1 md:grid-cols-4 items-center justify-center">
+        <Performance
             count={150}
             title="Upcoming Concert"
             images={[

@@ -33,7 +33,7 @@ const Nav = () => {
       >
         <nav className="flex justify-between">
           <div id="logo" className="flex items-center gap-10">
-            <h1 className="text-3xl uppercase font-bold">
+            <h1 className="text-3xl font-anton uppercase font-bold">
               <span className="text-primary">O</span>rganizer
             </h1>
             <div className="hidden md:block">
@@ -55,7 +55,7 @@ const Nav = () => {
             />
             <button
               id="CTA"
-              className="px-5 py-2 bg-primary text-gray-950 rounded-3xl cursor-pointer duration-300 hover:text-white hidden  md:block"
+              className="px-5 text-white py-2 bg-primary rounded-3xl cursor-pointer duration-300 hover:text-white hidden  md:block"
               style={{ opacity: buttonOpacity }}
             >
               <Link href="/"> Get started</Link>

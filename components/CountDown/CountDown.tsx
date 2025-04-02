@@ -2,9 +2,9 @@ import React from 'react'
 
 const CountDown = () => {
   return (
-    <section className='padding flex items-center justify-center h-screen text-white' style={{ background: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/countdownbg.jpg)`,}}>
+    <section className='padding flex items-center justify-center text-white' style={{ background: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/countdownbg.jpg)`,}}>
         <div className='max-w-3xl text-center space-y-10'>
-            <h3 className='text-4xl uppercase font-extrabold'>
+            <h3 className='font-anton text-4xl uppercase font-extrabold'>
             The Stage Is Set Are You Ready?
             </h3>
             <p>
@@ -29,7 +29,7 @@ const CountDown = () => {
                 </div>
             </div>
             <div className='text-black'>
-                    <button className='px-4 py-2 bg-primary rounded-4xl'>Book Ticket</button>
+                    <button className='px-4 py-2 bg-primary rounded-4xl text-white'>Book Ticket</button>
                 </div>
         </div>
     </section>
