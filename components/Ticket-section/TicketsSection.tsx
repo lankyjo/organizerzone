@@ -37,7 +37,7 @@ const Tickets = [
 
 const TicketsSection = () => {
   return (
-    <section className="padding bg-black text-gray-200 space-y-10">
+    <section className="padding py-36 bg-black text-gray-200 space-y-10">
 <div className="space-y-10 contain">
         
 <div className="text-center">

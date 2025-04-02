@@ -3,22 +3,22 @@ import Link from "next/link";
 import { FaCalendar, FaClock, FaLocationArrow, FaSpotify } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const containerVariant = {
-  hidden: {
-    scale: 0,
-  },
-  visible: {
-    scale: 1.02,
-    transition: {
-      type: "spring",
-      duration: 2,
-    },
-  },
-};
+// const containerVariant = {
+//   hidden: {
+//     scale: 0,
+//   },
+//   visible: {
+//     scale: 1.02,
+//     transition: {
+//       type: "spring",
+//       duration: 2,
+//     },
+//   },
+// };
 
 const Artist = () => {
   return (
-    <section id="artist" className="padding overflow-hidden w-full bg-black text-white">
+    <section id="artist" className="padding overflow-hidden py-36 w-full bg-black text-white">
       <div className="contain flex flex-col md:flex-row gap-10 justify-between">
         {/* Left Content Section */}
         <motion.div
@@ -74,7 +74,7 @@ const Artist = () => {
             className="absolute object-cover inset-0 rounded-xl"
           />
           {/* Overlay with Spotify details */}
-          <div className="bg-white/50 absolute text-black md:-left-20 -left-5 md:bottom-30 bottom-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
+          <div className="bg-white/50 absolute text-black md:-left-20 -left-5 md:bottom-10 bottom-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
             <div>
               <FaSpotify className="md:text-5xl text-3xl text-primary" />
             </div>
@@ -84,7 +84,7 @@ const Artist = () => {
             </div>
           </div>
           {/* Overlay with Hit count */}
-          <div className="bg-white/50 absolute text-black md:-right-10 -right-5 md:top-28 top-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
+          <div className="bg-white/50 absolute text-black md:-right-10 -right-5 md:top-10 top-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
             <div className="flex flex-col text-center">
               <span className="text-gray-950 md:text-3xl text-xl font-bold">
                 500+

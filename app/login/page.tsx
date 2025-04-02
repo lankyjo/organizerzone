@@ -1,8 +1,8 @@
 "use client";
-import { Box } from "@mantine/core";
+// import { Box } from "@mantine/core";
 // import { ActionIcon, Box, Group } from "@mantine/core";
 // import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 // import { FcGoogle } from "react-icons/fc";
 
 const fields = [
@@ -30,22 +30,22 @@ export default function LoginPage() {
             </button>
           </div>
         </form>
-        <Box className=" flex  justify-end  w-full max-w-[500px] ">
+        {/* <Box className=" flex  justify-end  w-full max-w-[500px] ">
           <Link
             href="/verify-email?password=true"
             className="no-underline text-primary  justify-self-end "
           >
             forgot password?
           </Link>
-        </Box>
-        <div>
+        </Box> */}
+        {/* <div>
           <p>
             Don&apos;t have an account?{" "}
             <span className="text-primary">
               <Link href="/register">Register</Link>
             </span>
           </p>
-        </div>
+        </div> */}
         {/* <div className="max-w-[500px] text-center my-4 flex items-center w-full justify-center">
           <hr className="w-full border-gray-300 lg:border-gray-400" />
           <span className="mx-2 text-gray-200 lg:text-gray-800">or</span>

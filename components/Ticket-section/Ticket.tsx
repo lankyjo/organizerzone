@@ -23,7 +23,7 @@ const Ticket = ({ imageUrl, price, title, date, venue, description }: TicketProp
       variants={itemVariants}
       initial="hidden"
       whileInView="show"
-      className="w-full bg-gray-500/50 p-5 px-5 flex max-sm:flex-col border-2 border-white rounded-2xl gap-10 max-w-[900px] mx-auto"
+      className="w-full bg-gray-500/50 py-7 px-6 flex max-sm:flex-col border-2 border-white rounded-2xl gap-10 max-w-[900px] mx-auto"
     >
       {/* Image Section */}
       <div className="relative w-full mx-auto flex-1 aspect-video overflow-hidden rounded-2xl max-w-[350px]">
@@ -61,13 +61,13 @@ const Ticket = ({ imageUrl, price, title, date, venue, description }: TicketProp
           <p>{description}</p>
 
           {/* Action Buttons */}
-          <div className="flex justify-center max-sm:text-sm gap-10 max-sm:justify-between max-sm:gap-0">
+          <div className="flex justify-end max-sm:text-sm gap-10 max-sm:justify-between max-sm:gap-0">
             <button className="py-2 px-5 max-sm:text-[8px] bg-primary text-white rounded-3xl transition duration-300 hover:text-gray-200">
               Get Ticket
             </button>
-            <button className="shadow shadow-primary bg-transparent rounded-3xl py-2 px-5 max-sm:text-[8px] border border-primary transition duration-300 hover:bg-primary hover:text-white">
+            {/* <button className="shadow shadow-primary bg-transparent rounded-3xl py-2 px-5 max-sm:text-[8px] border border-primary transition duration-300 hover:bg-primary hover:text-white">
               Info Detail
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

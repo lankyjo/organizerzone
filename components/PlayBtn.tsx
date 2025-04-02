@@ -1,9 +1,16 @@
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
 
-const PlayBtn = () => {
+interface PlayBtnProps {
+  onClick: () => void;
+}
+
+const PlayBtn: React.FC<PlayBtnProps> = ({ onClick }) => {
   return (
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer">
+    <div
+      onClick={onClick}
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+    >
       <style jsx>{`
         @keyframes custom-pulse {
           0% {

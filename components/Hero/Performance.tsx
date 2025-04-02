@@ -25,19 +25,19 @@ export default function Performance({
   }, [value, count]);
 
   return (
-    <div className="relative -z-10 flex md:flex-col gap-4">
+    <div className="relative -z-10 flex md:flex-col justify-between">
       <Avatar.Group>
         {images?.map((image, index) => (
           <Avatar
             key={index}
             src={image}
-            className="rounded-full border-4 border-[white] "
+            className="rounded-full border-8 border-gray-300 "
             size={65}
             radius="xl"
             styles={{
               root: {
-                border: "2px solid white",
-              },
+                border: "6px solid #f5f5f5", // Off-white border
+              }
             }}
           />
         ))}
