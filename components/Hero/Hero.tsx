@@ -72,7 +72,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <Box className=" w-full grid gap-6 grid-cols-1 md:grid-cols-4 md:items-end items-center">
+        <Box className=" w-full grid gap-6 grid-cols-1 md:grid-cols-4 items-center">
           <Performance
             count={150}
             title="Upcoming Concert"

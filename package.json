@@ -26,6 +26,7 @@
     "@tiptap/starter-kit": "^2.11.7",
     "axios": "^1.8.4",
     "embla-carousel-react": "^8.5.2",
+    "framer-motion": "^12.6.3",
     "js-cookie": "^3.0.5",
     "next": "15.2.4",
     "react": "^19.1.0",
