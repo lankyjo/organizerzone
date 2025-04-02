@@ -11,6 +11,22 @@ export default function Performance({
   images: [string, string, string];
 }) {
   const [value, setValue] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    // Set initial window width
+    setWindowWidth(window.innerWidth);
+
+    // Add event listener for window resize
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const interval = setTimeout(() => {
@@ -25,31 +41,35 @@ export default function Performance({
   }, [value, count]);
 
   return (
-    <div className="relative -z-10 flex md:flex-col justify-between">
+    <div className="relative -z-10 flex md:flex-col justify-between mb-[30px]">
       <Avatar.Group>
         {images?.map((image, index) => (
           <Avatar
             key={index}
             src={image}
-            className="rounded-full border-8 border-gray-300 "
-            size={65}
+            className="rounded-full border-4 border-[#F4F2F2] "
+            size={windowWidth >= 1024 ? 65 : 50}
             radius="xl"
             styles={{
               root: {
-                border: "6px solid #f5f5f5", // Off-white border
+                border: `${
+                  windowWidth >= 1024
+                    ? "3px solid #F4F2F2"
+                    : "2px solid #F4F2F2"
+                }`, // Off-white border
               },
             }}
           />
         ))}
       </Avatar.Group>
-      <div className="flex gap-4  items-center max-w-[14rem]">
-        <div>
-          <h3 className=" text-base md:text-3xl font-extrabold self-center ">
+      <div className="flex gap-4  items-center  justify-start max-w-[14rem]  w-full">
+        <div className="  ml-0">
+          <h3 className=" text-[1.7rem] md:text-3xl font-extrabold self-center ">
             {value}
-            <span className=" text-sm font-extrabold  ">+</span>
+            <span className=" text-[1.7rem] font-extrabold  ">+</span>
           </h3>
         </div>
-        <div>
+        <div className="w-full">
           <p className=" text-sm md:text-xl           self-center   ">
             {title}
           </p>

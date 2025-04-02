@@ -37,13 +37,13 @@ const Tickets = [
 
 const TicketsSection = () => {
   return (
-    <section className="padding py-36 bg-black text-gray-200 space-y-10">
+    <section className="padding md:py-36 py-20 bg-black text-gray-200 space-y-10">
 <div className="space-y-10 contain">
         
 <div className="text-center">
-        <p className="uppercase font-bold text-sm">concert schedules</p>
+        <p className="uppercase font-bold text-sm">event calendar</p>
         <h3 className="text-4xl font-anton uppercase font-bold">
-          countdown your next favorite concert
+          countdown your next favorite event
         </h3>
       </div>
 

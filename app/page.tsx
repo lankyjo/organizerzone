@@ -38,7 +38,7 @@ export default function Home() {
         <Nav />
         <Hero />
         <Artist />
-        <Moments/>
+        {/* <Moments/> */}
         <TicketsSection />
         <Sponsors/>
         <CountDown />
