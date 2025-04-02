@@ -94,7 +94,7 @@ const InputField = ({ type, placeholder, label }: InputProps) => {
         {label}
       </label>
       <input
-        className="border border-white lg:border-gray-500 rounded-md w-full p-2 placeholder:text-xs placeholder:text-gray-500"
+        className="border border-white lg:border-gray-500 rounded-md w-full p-2 placeholder:text-xs lg:placeholder:text-gray-500 placeholder:text-gray-200"
         type={type}
         id={label}
         placeholder={placeholder}
