@@ -1,13 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import { FaSpotify } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const containerVariant = {
+  hidden: {
+    scale: 0,
+  },
+  visible: {
+    scale: 1.02,
+    transition: {
+      type: "spring",
+      duration: 2,
+    },
+  },
+};
+
 const Artist = () => {
   return (
-    <section className="padding w-full bg-black text-white">
-      <div className="contain flex flex-col md:flex-row gap-10 justify-between">
-      <div className="max-w-xl space-y-14">
-        <div className="space-y-2">
+    <section className="padding overflow-hidden w-full bg-black flex flex-col md:flex-row gap-10 justify-between text-white">
+      <motion.div
+        className="max-w-xl space-y-14"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        <div>
           <p className="text-gray-400 tracking-widest">Wizkid</p>
           <h2 className="text-4xl font-anton uppercase font-bold md:text-6xl">
             This Month’s Must-See Live Performance
@@ -20,14 +39,19 @@ const Artist = () => {
           recognized for her ability to connect deeply with her audience.
         </p>
         <div>
-          <button className="bg-primary px-5 py-2 rounded-4xl text-white">
+          <button className="duration-300 hover:text-white bg-primary px-5 py-2 rounded-4xl text-gray-950">
             <Link href={"/"}>Get ticket</Link>
           </button>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="w-full h-[500px] md:h-[600px] max-w-[500px] md:max-w-[500px] relative overflow-visible">
-      <Image
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full max-w-[500px] mx-auto aspect-[3/4] md:aspect-[2/3] relative"
+      >
+        <Image
           alt="artist image"
           fill
           src={"/wizkid.webp"}
@@ -51,9 +75,7 @@ const Artist = () => {
             <span className="uppercase">Hits</span>
           </div>
         </div>
-      </div>
-      
-      </div>
+      </motion.div>
     </section>
   );
 };

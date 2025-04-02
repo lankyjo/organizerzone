@@ -1,7 +1,5 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
 const fields = [
   { type: "text", placeholder: "Enter your username", label: "Username" },
   { type: "email", placeholder: "Enter your email", label: "Email Address" },

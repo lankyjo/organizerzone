@@ -81,7 +81,7 @@ const Hero = () => {
           <Performance
             count={1000}
             title="Ticket Sold"
-            images={["ticket1.PNG", "ticket2.PNG", "ticket3.PNG"]}
+            images={["/ticket1.PNG", "/ticket2.PNG", "/ticket3.PNG"]}
           />
 
           <Box>

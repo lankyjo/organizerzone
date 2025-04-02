@@ -1,4 +1,4 @@
-import { Avatar, Box, Text } from "@mantine/core";
+import { Avatar } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 
 export default function Performance({
@@ -33,10 +33,10 @@ export default function Performance({
             src={image}
             className="rounded-full border-4 border-[white] "
             size={65}
+            radius="xl"
             styles={{
               root: {
                 border: "2px solid white",
-                padding: "10px",
               },
             }}
           />

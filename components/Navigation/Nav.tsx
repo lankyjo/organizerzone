@@ -44,6 +44,7 @@ const Nav = () => {
             size={30}
             onClick={open}
             className="  cursor-pointer md:hidden"
+            style={{ opacity: buttonOpacity }}
           />
 
           <div className="  items-center gap-2 hidden md:flex">

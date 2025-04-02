@@ -1,7 +1,9 @@
 "use client";
 import { createContext, JSX, useEffect, useState } from "react";
 
-export const TempValueContext = createContext<TempValueType | any>("");
+export const TempValueContext = createContext<TempValueType>(
+  {} as TempValueType
+);
 export default function TempValueProvider({
   children,
 }: {
