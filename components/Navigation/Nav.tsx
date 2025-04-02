@@ -29,7 +29,12 @@ const Nav = () => {
     <>
       <header
         className="fixed top-0 w-full p-4 transition-all duration-300 z-50"
-        style={{ backgroundColor: `rgba(75, 85, 99, ${opacity})` }}
+        style={{
+          backgroundColor:
+            buttonOpacity >= 1
+              ? `rgba(75, 85, 99, ${opacity})`
+              : `rgba(0, 0, 0, 0.9)`,
+        }}
       >
         <nav className="flex justify-between">
           <div id="logo" className="flex items-center gap-10">
@@ -40,12 +45,14 @@ const Nav = () => {
               <NavItem />
             </div>
           </div>
-          <MdMenu
-            size={30}
-            onClick={open}
-            className="  cursor-pointer md:hidden"
-            style={{ opacity: buttonOpacity }}
-          />
+
+          {!opened && (
+            <MdMenu
+              size={30}
+              onClick={open}
+              className="  cursor-pointer md:hidden"
+            />
+          )}
 
           <div className="  items-center gap-2 hidden md:flex">
             <Avatar

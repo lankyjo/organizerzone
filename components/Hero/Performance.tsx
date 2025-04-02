@@ -37,7 +37,7 @@ export default function Performance({
             styles={{
               root: {
                 border: "6px solid #f5f5f5", // Off-white border
-              }
+              },
             }}
           />
         ))}
@@ -50,9 +50,9 @@ export default function Performance({
           </h3>
         </div>
         <div>
-          <h5 className=" text-sm md:text-xl font-normal md:font-bold        self-center   ">
+          <p className=" text-sm md:text-xl           self-center   ">
             {title}
-          </h5>
+          </p>
         </div>
       </div>
     </div>
