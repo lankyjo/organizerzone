@@ -22,9 +22,10 @@
     @apply p-5 md:p-10 py-20;
   }
   .contain {
-    @apply max-w-7xl mx-auto px-5 md:px-10;
+    @apply max-w-7xl mx-auto px-5 md:px-10 w-full;
   }
 }
+
 
 
 @media (prefers-color-scheme: dark) {
@@ -35,13 +36,8 @@
 }
 
 body {
+  scroll-behavior: smooth;
   background: var(--background);
   color: var(--foreground);
   font-family: "Poppins", "Roboto", sans-serif;
 }
-/* .iti {
-  --iti-path-flags-1x: url('path/to/flags.webp');
-  --iti-path-flags-2x: url('path/to/flags@2x.webp');
-  --iti-path-globe-1x: url('path/to/globe.webp');
-  --iti-path-globe-2x: url('path/to/globe@2x.webp');
-} */

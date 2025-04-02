@@ -7,11 +7,11 @@ const CountDown = () => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.3 }}
-      className="padding flex items-center justify-center text-white"
+      className="padding text-white"
       style={{
         background: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/countdownbg.jpg)`,
       }}
-    >
+    ><div className="contain  flex items-center justify-center">
       <div className="max-w-3xl text-center space-y-10">
         <h3 className="font-anton text-4xl uppercase font-extrabold">
           The Stage Is Set Are You Ready?
@@ -44,12 +44,9 @@ const CountDown = () => {
             Book Ticket
           </button>
         </div>
-        <div className="text-black">
-          <button className="px-4 py-2 bg-primary rounded-4xl">
-            Book Ticket
-          </button>
-        </div>
       </div>
+    </div>
+
     </motion.section>
   );
 };

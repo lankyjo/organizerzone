@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef } from "react";
-import { FaSpotify } from "react-icons/fa";
+import { FaCalendar, FaClock, FaLocationArrow, FaSpotify } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const containerVariant = {
@@ -19,63 +18,82 @@ const containerVariant = {
 
 const Artist = () => {
   return (
-    <section className="padding overflow-hidden w-full bg-black flex flex-col md:flex-row gap-10 justify-between text-white">
-      <motion.div
-        className="max-w-xl space-y-14"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-      >
-        <div>
-          <p className="text-gray-400 tracking-widest">Wizkid</p>
-          <h2 className="text-4xl font-anton uppercase font-bold md:text-6xl">
-            This Month’s Must-See Live Performance
-          </h2>
-        </div>
-        <p className="text-gray-400">
-          Sebastian Blaze is a rising star in the indie-pop scene, known for her
-          ethereal vocals and captivating stage presence. His latest album,
-          “Starlight Echoes,” has earned critical acclaim, and he is widely
-          recognized for her ability to connect deeply with her audience.
-        </p>
-        <div>
-          <button className="duration-300 hover:text-white bg-primary px-5 py-2 rounded-4xl text-gray-950">
-            <Link href={"/"}>Get ticket</Link>
-          </button>
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full max-w-[500px] mx-auto aspect-[3/4] md:aspect-[2/3] relative"
-      >
-        <Image
-          alt="artist image"
-          fill
-          src={"/wizkid.webp"}
-          className="absolute object-cover inset-0 rounded-xl"
-        />
-
-        <div className="bg-white/50 absolute text-black md:-left-20 -left-5 md:bottom-30 bottom-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
+    <section id="artist" className="padding overflow-hidden w-full bg-black text-white">
+      <div className="contain flex flex-col md:flex-row gap-10 justify-between">
+        {/* Left Content Section */}
+        <motion.div
+          className="max-w-xl space-y-5"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
           <div>
-            <FaSpotify className="md:text-5xl text-3xl text-primary" />
+            <p className="text-gray-400 tracking-widest">Wizkid</p>
+            <h2 className="text-4xl font-anton uppercase font-bold md:text-6xl">
+              This Month’s Must-See Live Performance
+            </h2>
           </div>
-          <div className="flex flex-col">
-            <span>Streaming</span>
-            <span>1 Billion+</span>
+          <p className="text-gray-400">
+            Sebastian Blaze is a rising star in the indie-pop scene, known for her
+            ethereal vocals and captivating stage presence. His latest album,
+            “Starlight Echoes,” has earned critical acclaim, and he is widely
+            recognized for her ability to connect deeply with her audience.
+          </p>
+          <div className="space-y-5 text-gray-400">
+            <div className="flex items-center gap-2">
+              <span><FaCalendar/></span>
+              <span>Saturday, 18 November</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span><FaClock/></span>
+              <span>7 PM</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span><FaLocationArrow/></span>
+              <span>Bright Stadium, London</span>
+            </div>
           </div>
-        </div>
-        <div className="bg-white/50 absolute text-black md:-right-10 -right-5 md:top-28 top-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
-          <div className="flex flex-col text-center">
-            <span className="text-gray-950 md:text-3xl text-xl font-bold">
-              500+
-            </span>
-            <span className="uppercase">Hits</span>
+          <div>
+            <button className="duration-300 text-white hover:text-white bg-primary px-5 py-2 rounded-4xl">
+              <Link href={"/"}>Get ticket</Link>
+            </button>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+
+        {/* Right Image Section */}
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full h-[350px] md:h-[500px] max-w-[350px] mx-auto md:max-w-[500px] relative"
+        >
+          <Image
+            alt="artist image"
+            fill
+            src="/wizkid.webp"
+            className="absolute object-cover inset-0 rounded-xl"
+          />
+          {/* Overlay with Spotify details */}
+          <div className="bg-white/50 absolute text-black md:-left-20 -left-5 md:bottom-30 bottom-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
+            <div>
+              <FaSpotify className="md:text-5xl text-3xl text-primary" />
+            </div>
+            <div className="flex flex-col">
+              <span>Streaming</span>
+              <span>1 Billion+</span>
+            </div>
+          </div>
+          {/* Overlay with Hit count */}
+          <div className="bg-white/50 absolute text-black md:-right-10 -right-5 md:top-28 top-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
+            <div className="flex flex-col text-center">
+              <span className="text-gray-950 md:text-3xl text-xl font-bold">
+                500+
+              </span>
+              <span className="uppercase">Hits</span>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

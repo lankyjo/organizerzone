@@ -1,5 +1,6 @@
 import React from "react";
 import Ticket from "./Ticket";
+import Link from "next/link";
 
 const Tickets = [
   {
@@ -37,7 +38,9 @@ const Tickets = [
 const TicketsSection = () => {
   return (
     <section className="padding bg-black text-gray-200 space-y-10">
-      <div className="text-center">
+<div className="space-y-10 contain">
+        
+<div className="text-center">
         <p className="uppercase font-bold text-sm">concert schedules</p>
         <h3 className="text-4xl font-anton uppercase font-bold">
           countdown your next favorite concert
@@ -56,7 +59,12 @@ const TicketsSection = () => {
             venue={ticket.venue}
           />
         ))}
+        <div className="w-full text-right max-w-[900px] mx-auto">
+          <Link href="/" className="cursor-pointer text-primary text-xl underline">see more</Link>
+        </div>
       </ul>
+
+</div>
     </section>
   );
 };

@@ -9,6 +9,8 @@ import Artist from "@/components/Artist/Artist";
 import TicketsSection from "@/components/Ticket-section/TicketsSection";
 import CountDown from "@/components/CountDown/CountDown";
 import Footer from "@/components/Footer/Footer";
+import Sponsors from "@/components/Sponsors/Sponsors";
+import Moments from "@/components/Moments/Moments";
 
 export default function Home() {
   const { setEvents, setOrganizer } = useAppContext();
@@ -36,7 +38,9 @@ export default function Home() {
         <Nav />
         <Hero />
         <Artist />
+        <Moments/>
         <TicketsSection />
+        <Sponsors/>
         <CountDown />
         <Footer />
       </main>

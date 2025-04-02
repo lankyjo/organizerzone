@@ -44,7 +44,7 @@ const Nav = () => {
             size={30}
             onClick={open}
             className="  cursor-pointer md:hidden"
-            style={{ opacity: buttonOpacity }}
+            // style={{ opacity: buttonOpacity }}
           />
 
           <div className="  items-center gap-2 hidden md:flex">
@@ -59,7 +59,7 @@ const Nav = () => {
               className="px-5 text-white py-2 bg-primary rounded-3xl cursor-pointer duration-300 hover:text-white hidden  md:block"
               style={{ opacity: buttonOpacity }}
             >
-              <Link href="/"> Get started</Link>
+              <Link href="#artist"> Get started</Link>
             </button>
           </div>
         </nav>
