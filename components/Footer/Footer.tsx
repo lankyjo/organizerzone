@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import {
   FaFacebook,
@@ -31,8 +32,10 @@ const Footer = () => {
           <div className="space-y-5">
             <h2 className="font-bold uppercase font-anton">Quick Links</h2>
             <ul className="flex flex-col gap-2">
-              {["Login"].map((item, index) => (
-                <li key={index}>{item}</li>
+              {["login"].map((item, index) => (
+                <li key={index} className=" capitalize">
+                  <Link href={`/${item}`}>{item}</Link>
+                </li>
               ))}
             </ul>
           </div>

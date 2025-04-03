@@ -1,4 +1,9 @@
 "use client";
+
+import useAppContext from "@/components/utils/hooks/useAppContext";
+import useGetter from "@/components/utils/hooks/useGetter";
+import { useEffect, useState } from "react";
+
 // import { Box } from "@mantine/core";
 // import { ActionIcon, Box, Group } from "@mantine/core";
 // import Image from "next/image";
@@ -11,10 +16,39 @@ const fields = [
 ];
 
 export default function LoginPage() {
+  const { organizer, setOrganizer } = useAppContext();
+  const { data: user } = useGetter(
+    `user/public?usernameSlug=${process.env.NEXT_PUBLIC_USER_NAME}`
+  );
+  useEffect(() => {
+    if (user?.data) {
+      setOrganizer(user?.data);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.data]);
+
+  const [loginData, setLoginData] = useState<{
+    email: string;
+    password: string;
+  }>({ email: "", password: "" });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setLoginData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle login logic here
+  };
+
   return (
     <section className="w-full h-dvh lg:p-0 md:p-10 p-5 relative flex justify-center items-center lg:text-gray-900 text-white">
       <div className="bg-white/30 backdrop-blur-xl w-full rounded-lg p-10 lg:p-0 lg:px-10 lg:py-6 lg:overflow-y-auto flex-1/2 space-y-2 flex justify-center items-center flex-col lg:space-y-3 lg:h-full lg:rounded-none lg:bg-gray-100">
-        <form className="space-y-3 w-full max-w-[500px] mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-3 w-full max-w-[500px] mx-auto"
+        >
           <h1 className="text-3xl uppercase font-anton">Login</h1>
           {fields.map((field) => (
             <InputField
@@ -22,10 +56,15 @@ export default function LoginPage() {
               type={field.type}
               placeholder={field.placeholder}
               label={field.label}
+              handleChange={handleChange}
+              name={field.label.toLowerCase().replace(" ", "")}
             />
           ))}
           <div>
-            <button className="w-full cursor-pointer text-white bg-primary py-3 rounded-lg">
+            <button
+              type="submit"
+              className="w-full cursor-pointer text-white bg-primary py-3 rounded-lg"
+            >
               Login
             </button>
           </div>
@@ -62,9 +101,15 @@ export default function LoginPage() {
         </div> */}
       </div>
 
-      <div className="absolute select-none inset-0 -z-[1] lg:relative lg:flex-1/2 lg:h-full"
-        style={{ backgroundImage: `url("/wizkid.webp")`, backgroundSize: 'cover' }}
-        >
+      <div
+        className="absolute select-none inset-0 -z-[1] lg:relative lg:flex-1/2 lg:h-full"
+        style={{
+          backgroundImage: `url(${organizer?.imageUrl || "/wizkid.webp"})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <video className="w-full h-full object-cover" muted autoPlay loop>
           <source src="/placeholder1.mp4" />
         </video>
@@ -82,9 +127,17 @@ interface InputProps {
   type: string;
   placeholder: string;
   label: string;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
 }
 
-const InputField = ({ type, placeholder, label }: InputProps) => {
+const InputField = ({
+  type,
+  placeholder,
+  label,
+  handleChange,
+  name,
+}: InputProps) => {
   return (
     <div>
       <label
@@ -98,6 +151,10 @@ const InputField = ({ type, placeholder, label }: InputProps) => {
         type={type}
         id={label}
         placeholder={placeholder}
+        name={label.toLowerCase().replace(" ", "")}
+        onChange={handleChange}
+        required
+        autoComplete="off"
       />
     </div>
   );

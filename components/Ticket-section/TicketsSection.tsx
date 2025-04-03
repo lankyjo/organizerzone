@@ -90,28 +90,6 @@ const TicketsSection = () => {
             see more
           </Link>
         </div>
-
-        <ul className="space-y-10 ">
-          {Tickets.map((ticket) => (
-            <Ticket
-              key={ticket.description}
-              imageUrl={ticket.image}
-              price={ticket.price}
-              title={ticket.name}
-              description={ticket.description}
-              date={ticket.date}
-              venue={ticket.venue}
-            />
-          ))}
-          <div className="w-full text-right max-w-[900px] mx-auto">
-            <Link
-              href="/"
-              className="cursor-pointer text-primary text-xl underline"
-            >
-              see more
-            </Link>
-          </div>
-        </ul>
       </div>
     </section>
   );

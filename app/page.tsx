@@ -6,7 +6,6 @@ import useFormatEventData from "@/components/utils/hooks/useFormatEvent";
 import useGetter from "@/components/utils/hooks/useGetter";
 import { useEffect } from "react";
 import Artist from "@/components/Artist/Artist";
-// import TicketsSection from "@/components/Ticket-section/TicketsSection";
 import CountDown from "@/components/CountDown/CountDown";
 import Footer from "@/components/Footer/Footer";
 import Sponsors from "@/components/Sponsors/Sponsors";
@@ -15,7 +14,8 @@ import { classifyEvents } from "@/components/utils/contextAPI/helperFunctions";
 import TicketsSection from "@/components/Ticket-section/TicketsSection";
 
 export default function Home() {
-  const { setEvents, setOrganizer, setClassyFieldEVents } = useAppContext();
+  const { setEvents, setOrganizer, setClassyFieldEVents, setVal } =
+    useAppContext();
   const { data: eventData } = useGetter(
     `event/user-events/${process.env.NEXT_PUBLIC_USER_ID}`
   );
