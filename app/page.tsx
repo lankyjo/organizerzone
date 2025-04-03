@@ -1,6 +1,5 @@
 "use client";
 import Hero from "@/components/Hero/Hero";
-import Nav from "@/components/Navigation/Nav";
 import useAppContext from "@/components/utils/hooks/useAppContext";
 import useFormatEventData from "@/components/utils/hooks/useFormatEvent";
 import useGetter from "@/components/utils/hooks/useGetter";
@@ -39,7 +38,6 @@ export default function Home() {
   return (
     <>
       <main className="min-h-[2000px]">
-        <Nav />
         <Hero />
         <Artist />
         {/* <Moments/> */}

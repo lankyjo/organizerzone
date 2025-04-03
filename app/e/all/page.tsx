@@ -36,6 +36,8 @@ export default function AllEvent() {
         : event?.description,
     slug: event?.slug,
     id: event?._id,
+    starDate: event?.startDate,
+    endDate: event?.endDate,
   }));
 
   return (
@@ -79,6 +81,8 @@ export default function AllEvent() {
                 date={ticket.date}
                 venue={ticket.venue}
                 slug={ticket?.slug}
+                startDate={ticket?.starDate}
+                endDate={ticket?.endDate}
               />
             ))}
           </ul>

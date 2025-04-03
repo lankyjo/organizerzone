@@ -164,17 +164,25 @@ export const getFilteredEvents = ({
   const upcomingEvents = upcoming || [];
   const allEvents = events || [];
 
-  const filterEvents = (eventList: EventProps[]) => {
-    if (eventList.length > 4) {
-      return eventList.slice(1, 4);
-    } else if (eventList.length > 0) {
-      return eventList;
-    }
-    return [];
+  // Function to slice events properly
+  const filterEvents = (
+    eventList: EventProps[],
+    start: number,
+    end: number
+  ) => {
+    return eventList.slice(start, end);
   };
 
-  const filteredUpcoming = filterEvents(upcomingEvents);
-  return filteredUpcoming.length > 0
-    ? filteredUpcoming
-    : filterEvents(allEvents);
+  if (upcomingEvents.length >= 4) {
+    return filterEvents(upcomingEvents, 1, 5);
+  } else if (upcomingEvents.length > 0) {
+    if (upcomingEvents.length === 1) {
+      // If only one upcoming event, take more from 'events'
+      const additionalEvents = filterEvents(allEvents, 1, 4); // Take up to 3 more
+      return [...upcomingEvents, ...additionalEvents].slice(0, 4); // Ensure max 4 events
+    }
+    return upcomingEvents;
+  }
+
+  return filterEvents(allEvents, 0, 4); // If no upcoming events, take first 4 from 'events'
 };

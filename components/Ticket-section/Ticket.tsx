@@ -4,6 +4,7 @@ import { FaCalendarAlt, FaMap } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useViewportSize } from "@mantine/hooks";
+import { localTimeISO } from "../utils/contextAPI/helperFunctions";
 
 interface TicketProps {
   imageUrl: string;
@@ -13,6 +14,8 @@ interface TicketProps {
   venue: string;
   description: string;
   slug: string;
+  startDate: string;
+  endDate: string;
 }
 
 const itemVariants = {
@@ -28,6 +31,8 @@ const Ticket = ({
   venue,
   description,
   slug,
+  startDate,
+  endDate,
 }: TicketProps) => {
   const { width } = useViewportSize();
   return (
@@ -75,16 +80,31 @@ const Ticket = ({
           </div>
           <p>{width > 500 ? description : `${description?.slice(0, 30)}...`}</p>
 
-          {/* Action Buttons */}
-          <div className="flex justify-end max-sm:text-sm gap-10 max-sm:justify-between max-sm:gap-0">
-            <button className="py-2 px-5 max-sm:text-[8px] bg-primary text-white rounded-3xl transition duration-300 hover:text-gray-200">
-              <Link href={`/e?slug=${slug}`}>Get Ticket</Link>
-            </button>
+          {new Date(localTimeISO) < new Date(endDate) ? (
+            <div className="flex justify-end max-sm:text-sm gap-10 max-sm:justify-between max-sm:gap-0">
+              <button className="py-2 px-5 max-sm:text-[8px] bg-primary text-white rounded-3xl transition duration-300 hover:text-gray-200">
+                <Link href={`/e?slug=${slug}`}>Get Ticket</Link>
+              </button>
 
-            {/* <button className="shadow shadow-primary bg-transparent rounded-3xl py-2 px-5 max-sm:text-[8px] border border-primary transition duration-300 hover:bg-primary hover:text-white">
+              {/* <button className="shadow shadow-primary bg-transparent rounded-3xl py-2 px-5 max-sm:text-[8px] border border-primary transition duration-300 hover:bg-primary hover:text-white">
               Info Detail
             </button> */}
-          </div>
+            </div>
+          ) : (
+            <div className="flex justify-end max-sm:text-sm  max-sm:justify-between max-sm:gap-0">
+              <p className="py-2 px-5 max-sm:text-[8px]  bg-[gray]  text-white rounded-3xl transition duration-300 hover:text-gray-200">
+                {new Date(localTimeISO) > new Date(startDate) &&
+                new Date(localTimeISO) < new Date(endDate)
+                  ? "Event has started"
+                  : new Date(localTimeISO) > new Date(endDate) ||
+                    status !== "published"
+                  ? "Event has ended"
+                  : ""}
+              </p>
+            </div>
+          )}
+
+          {/* Action Buttons */}
         </div>
       </div>
     </motion.li>

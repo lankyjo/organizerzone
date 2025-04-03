@@ -90,29 +90,41 @@ const CountDown = () => {
             The Stage Is Set Are You Ready?
           </h3>
           <p>
-            Michael Rock ticket sale in a few day. Keep your spot at the hottest
-            concerts and be part of unforgettable live performances. Book your
-            tickets today before they sell out!
+            {allEvents[0]?.event_title} ticket sale in a few day. Keep your spot
+            at the hottest concerts and be part of unforgettable live
+            performances. Book your tickets today before they sell out!
           </p>
-          {new Date(localTimeISO) < new Date(startDate) ? (
-            <div className="flex max-w-[450px] mx-auto items-center justify-between gap-5">
-              <div id="days" className="flex flex-col">
-                <span className="text-3xl font-bold">{leading0(days)}</span>
-                <span>Days</span>
+          {new Date(localTimeISO) < new Date(endDate) ? (
+            <>
+              <div className="flex max-w-[450px] mx-auto items-center justify-between gap-5">
+                <div id="days" className="flex flex-col">
+                  <span className="text-3xl font-bold">{leading0(days)}</span>
+                  <span>Days</span>
+                </div>
+                <div id="hours" className="flex flex-col">
+                  <span className="text-3xl font-bold">{leading0(hours)}</span>
+                  <span>Hours</span>
+                </div>
+                <div id="minutes" className="flex flex-col">
+                  <span className="text-3xl font-bold">
+                    {leading0(minutes)}
+                  </span>
+                  <span>Minutes</span>
+                </div>
+                <div id="seconds" className="flex flex-col">
+                  <span className="text-3xl font-bold">
+                    {leading0(seconds)}
+                  </span>
+                  <span>Seconds</span>
+                </div>
               </div>
-              <div id="hours" className="flex flex-col">
-                <span className="text-3xl font-bold">{leading0(hours)}</span>
-                <span>Hours</span>
+
+              <div className="text-black">
+                <button className="px-4 py-2 bg-primary rounded-4xl text-white">
+                  <Link href={`/e?slug=${slug}`}>Book Ticket</Link>
+                </button>
               </div>
-              <div id="minutes" className="flex flex-col">
-                <span className="text-3xl font-bold">{leading0(minutes)}</span>
-                <span>Minutes</span>
-              </div>
-              <div id="seconds" className="flex flex-col">
-                <span className="text-3xl font-bold">{leading0(seconds)}</span>
-                <span>Seconds</span>
-              </div>
-            </div>
+            </>
           ) : (
             <span className="text-3xl font-bold">
               {new Date(localTimeISO) > new Date(startDate) &&
@@ -124,12 +136,6 @@ const CountDown = () => {
                 : ""}
             </span>
           )}
-
-          <div className="text-black">
-            <button className="px-4 py-2 bg-primary rounded-4xl text-white">
-              <Link href={`/e?slug=${slug}`}>Book Ticket</Link>
-            </button>
-          </div>
         </div>
       </div>
     </motion.section>

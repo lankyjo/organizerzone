@@ -35,6 +35,8 @@ const TicketsSection = () => {
         : event?.description,
     slug: event?.slug,
     id: event?._id,
+    startDate: event?.startDate,
+    endDate: event?.startDate,
   }));
 
   return (
@@ -59,11 +61,13 @@ const TicketsSection = () => {
                 date={ticket.date}
                 venue={ticket.venue}
                 slug={ticket?.slug}
+                endDate={ticket?.endDate}
+                startDate={ticket?.startDate}
               />
             ))}
           </ul>
 
-          {Tickets?.length > 2 && (
+          {
             <div className="w-full text-right max-w-[900px] mx-auto">
               <Link
                 href="/e/all"
@@ -72,7 +76,7 @@ const TicketsSection = () => {
                 see more
               </Link>
             </div>
-          )}
+          }
         </div>
       </>
     </section>

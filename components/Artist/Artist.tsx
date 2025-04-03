@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -51,10 +52,7 @@ const Artist = () => {
               </span>
               {upcoming?.startDate ? (
                 <span>
-                  {format(
-                    new Date(classifyEvents?.upcoming[0]?.startDate),
-                    "EEEE, d MMMM"
-                  )}
+                  {format(new Date(upcoming?.startDate), "EEEE, d MMMM")}
                 </span>
               ) : (
                 <span>Unknown</span>
@@ -66,12 +64,7 @@ const Artist = () => {
               </span>
 
               {upcoming?.startDate ? (
-                <span>
-                  {format(
-                    new Date(classifyEvents?.upcoming[0]?.startDate),
-                    "h a"
-                  )}
-                </span>
+                <span>{format(new Date(upcoming?.startDate), "h a")}</span>
               ) : (
                 <span>Unknown</span>
               )}
@@ -91,7 +84,6 @@ const Artist = () => {
           </div>
         </motion.div>
 
-        {/* Right Image Section */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -104,7 +96,7 @@ const Artist = () => {
             src={upcoming?.banner?.url || "/wizkid.webp"}
             className="absolute object-cover inset-0 rounded-xl"
           />
-          {/* Overlay with Spotify details */}
+
           <div className="bg-white/50 absolute text-black md:-left-20 -left-5 md:bottom-10 bottom-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
             <div>
               <FaSpotify className="md:text-5xl text-3xl text-primary" />
@@ -114,16 +106,16 @@ const Artist = () => {
               <span>Attending</span>
             </div>
           </div>
-          {/* Overlay with Hit count */}
+
           <div className="bg-white/50 absolute text-black md:-right-10 -right-5 md:top-10 top-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
             {upcoming?.startDate && (
               <div className="flex flex-col text-center">
                 <span className="text-gray-950 md:text-3xl text-xl font-bold">
-                  {format(classifyEvents?.upcoming[0]?.startDate, "do")}
+                  {format(upcoming?.startDate, "do")}
                 </span>
                 <span className="uppercase">
                   {" "}
-                  {format(classifyEvents?.upcoming[0]?.startDate, "MMMM")}
+                  {format(upcoming?.startDate, "MMMM")}
                 </span>
               </div>
             )}

@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="grid  grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <div id="logo" className="space-y-5">
           <h1 className="text-3xl font-anton uppercase font-bold">
-            <span className="text-primary">O</span>rganizer
+            <span className="text-primary">W</span>ATAWI
           </h1>
           <p>
             Trusted platform for all things live music bringing you closer to
@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="space-y-5">
             <h2 className="font-bold uppercase font-anton">Quick Links</h2>
             <ul className="flex flex-col gap-2">
-              {["Create Event"].map((item, index) => (
+              {["Create Event"]?.map((item, index) => (
                 <li key={index} className=" capitalize">
                   <Link href={`https://www.ogaticket.com/e`}>{item}</Link>
                 </li>

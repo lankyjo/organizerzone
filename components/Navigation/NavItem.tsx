@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function NavItem() {
   return (
     <ul className="gap-4 flex flex-col md:flex-row md:gap-10">
-      {["home", "contact"].map((link) => {
+      {["home", "contact"]?.map((link) => {
         const href =
           link === "contact" ? "#contact" : link === "home" ? "/" : `/${link}`;
 

@@ -13,9 +13,29 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Organizer Zone",
-  description: "This is the organizer event zone",
+  title: "WATAWI",
+  description: "WATAWI",
   icons: "/next.svg",
+  openGraph: {
+    title: "WATAWI",
+    description: "WATAWI",
+    images: [
+      {
+        url: "https://static.ogaticket.com/user/b1ba61e9-8148-41b0-bcdf-ec651da9588d.jpg", // Update with your actual image URL
+        width: 1200,
+        height: 630,
+        alt: "WATAWI",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WATAWI",
+    description: "WATAWI",
+    images: [
+      "https://static.ogaticket.com/user/b1ba61e9-8148-41b0-bcdf-ec651da9588d.jpg",
+    ], // Same as Open Graph image
+  },
 };
 
 export default function RootLayout({
@@ -29,6 +49,7 @@ export default function RootLayout({
         <TempValueProvider>
           <MantineProvider defaultColorScheme="auto">
             <Nav />
+
             {children}
           </MantineProvider>
         </TempValueProvider>

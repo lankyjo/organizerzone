@@ -40,7 +40,7 @@ const Nav = () => {
         <nav className="flex justify-between">
           <div id="logo" className="flex items-center gap-10">
             <h1 className="text-3xl font-anton uppercase font-bold">
-              <span className="text-primary">O</span>rganizer
+              <span className="text-primary">W</span>ATAWI
             </h1>
             <div className="hidden md:block">
               <NavItem />
