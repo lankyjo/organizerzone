@@ -3,7 +3,10 @@ import Ticket from "./Ticket";
 import Link from "next/link";
 import useAppContext from "../utils/hooks/useAppContext";
 import { format } from "date-fns";
-import { getFilteredEvents } from "../utils/contextAPI/helperFunctions";
+import {
+  getFilteredEvents,
+  imagePlaceholder,
+} from "../utils/contextAPI/helperFunctions";
 
 const TicketsSection = () => {
   const { classifyEvents, events } = useAppContext();
@@ -49,7 +52,7 @@ const TicketsSection = () => {
             {Tickets.map((ticket) => (
               <Ticket
                 key={ticket?.id}
-                imageUrl={ticket.image}
+                imageUrl={ticket.image || imagePlaceholder}
                 price={ticket.price}
                 title={ticket.name}
                 description={ticket.description}

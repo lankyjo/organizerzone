@@ -4,7 +4,6 @@ import React from "react";
 import {
   FaFacebook,
   FaInstagram,
-  FaSpotify,
   FaTwitter,
   FaYoutube,
   FaEnvelope,
@@ -81,27 +80,27 @@ const Footer = () => {
         <small>© 2025 powered by ogaticket</small>
         <div className="flex gap-2">
           <span className="p-3 rounded-full bg-gray-400/80">
-            <a href="">
+            <a href="https://www.instagram.com/ogaticket_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
               <FaInstagram className="text-black" />
             </a>
           </span>
           <span className="p-3 rounded-full bg-gray-400/80">
-            <a href="">
+            <a href="https://twitter.com/Ogaticket_">
               <FaTwitter className="text-black" />
             </a>
           </span>
           <span className="p-3 rounded-full bg-gray-400/80">
-            <a href="">
+            <a href="https://www.facebook.com/share/1FEr4akUw6/">
               <FaFacebook className="text-black" />
             </a>
           </span>
-          <span className="p-3 rounded-full bg-gray-400/80">
+          {/* <span className="p-3 rounded-full bg-gray-400/80">
             <a href="">
               <FaSpotify className="text-black" />
             </a>
-          </span>
+          </span> */}
           <span className="p-3 rounded-full bg-gray-400/80">
-            <a href="">
+            <a href="https://www.youtube.com/@Ogaticket">
               <FaYoutube className="text-black" />
             </a>
           </span>

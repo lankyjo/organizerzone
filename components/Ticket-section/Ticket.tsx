@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaCalendarAlt, FaMap } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useViewportSize } from "@mantine/hooks";
 
 interface TicketProps {
   imageUrl: string;
@@ -28,6 +29,7 @@ const Ticket = ({
   description,
   slug,
 }: TicketProps) => {
+  const { width } = useViewportSize();
   return (
     <motion.li
       id="tickets"
@@ -68,10 +70,10 @@ const Ticket = ({
             </div>
             <div className="flex items-center gap-2">
               <FaMap />
-              <span>{venue}</span>
+              <span>{width > 500 ? venue : `${venue?.slice(0, 28)}...`}</span>
             </div>
           </div>
-          <p>{description}</p>
+          <p>{width > 500 ? description : `${description?.slice(0, 30)}...`}</p>
 
           {/* Action Buttons */}
           <div className="flex justify-end max-sm:text-sm gap-10 max-sm:justify-between max-sm:gap-0">
