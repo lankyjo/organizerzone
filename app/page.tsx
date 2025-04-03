@@ -6,12 +6,13 @@ import useFormatEventData from "@/components/utils/hooks/useFormatEvent";
 import useGetter from "@/components/utils/hooks/useGetter";
 import { useEffect } from "react";
 import Artist from "@/components/Artist/Artist";
-import TicketsSection from "@/components/Ticket-section/TicketsSection";
+// import TicketsSection from "@/components/Ticket-section/TicketsSection";
 import CountDown from "@/components/CountDown/CountDown";
 import Footer from "@/components/Footer/Footer";
 import Sponsors from "@/components/Sponsors/Sponsors";
 import Moments from "@/components/Moments/Moments";
 import { classifyEvents } from "@/components/utils/contextAPI/helperFunctions";
+import TicketsSection from "@/components/Ticket-section/TicketsSection";
 
 export default function Home() {
   const { setEvents, setOrganizer, setClassyFieldEVents } = useAppContext();
@@ -42,7 +43,7 @@ export default function Home() {
         <Nav />
         <Hero />
         <Artist />
-        <Moments />
+        {/* <Moments/> */}
         <TicketsSection />
         <Sponsors />
         <CountDown />

@@ -60,13 +60,35 @@ const TicketsSection = () => {
   }));
 
   return (
-    <section className="padding py-36 bg-black text-gray-200 space-y-10">
+    <section className="padding md:py-36 py-20 bg-black text-gray-200 space-y-10">
       <div className="space-y-10 contain">
         <div className="text-center">
-          <p className="uppercase font-bold text-sm">concert schedules</p>
+          <p className="uppercase font-bold text-sm">event calendar</p>
           <h3 className="text-4xl font-anton uppercase font-bold">
-            countdown your next favorite concert
+            countdown your next favorite event
           </h3>
+        </div>
+
+        <ul className="space-y-10 ">
+          {Tickets.map((ticket) => (
+            <Ticket
+              key={ticket.description}
+              imageUrl={ticket.image}
+              price={ticket.price}
+              title={ticket.name}
+              description={ticket.description}
+              date={ticket.date}
+              venue={ticket.venue}
+            />
+          ))}
+        </ul>
+        <div className="w-full text-right max-w-[900px] mx-auto">
+          <Link
+            href="/"
+            className="cursor-pointer text-primary text-xl underline"
+          >
+            see more
+          </Link>
         </div>
 
         <ul className="space-y-10 ">
