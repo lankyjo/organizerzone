@@ -11,9 +11,10 @@ import CountDown from "@/components/CountDown/CountDown";
 import Footer from "@/components/Footer/Footer";
 import Sponsors from "@/components/Sponsors/Sponsors";
 import Moments from "@/components/Moments/Moments";
+import { classifyEvents } from "@/components/utils/contextAPI/helperFunctions";
 
 export default function Home() {
-  const { setEvents, setOrganizer } = useAppContext();
+  const { setEvents, setOrganizer, setClassyFieldEVents } = useAppContext();
   const { data: eventData } = useGetter(
     `event/user-events/${process.env.NEXT_PUBLIC_USER_ID}`
   );
@@ -25,10 +26,13 @@ export default function Home() {
   useEffect(() => {
     if (events?.length) {
       setEvents(events);
+      const classifieldEvents = classifyEvents(events);
+      setClassyFieldEVents(classifieldEvents);
     }
     if (user?.data) {
       setOrganizer(user?.data);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [events, user?.data]);
 
@@ -38,9 +42,9 @@ export default function Home() {
         <Nav />
         <Hero />
         <Artist />
-        <Moments/>
+        <Moments />
         <TicketsSection />
-        <Sponsors/>
+        <Sponsors />
         <CountDown />
         <Footer />
       </main>

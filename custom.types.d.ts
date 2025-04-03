@@ -52,6 +52,17 @@ interface TempValueType {
   setOrganizer: (organizer: OrganizerProps) => void;
   events: EventProps[];
   setEvents: (events: EventProps[]) => void;
+
+  classifyEvents: {
+    upcoming: EventProps[];
+    past: EventProps[];
+    today: EventProps[];
+  };
+  setClassyFieldEVents: (events: {
+    upcoming: EventProps[];
+    past: EventProps[];
+    today: EventProps[];
+  }) => void;
 }
 
 interface PostToEmailProps {
@@ -105,6 +116,7 @@ interface OrganizerProps {
 }
 
 interface EventProps {
+  description;
   approvalStatus?: string;
   approvalNote?: string;
   isVerified?: boolean;

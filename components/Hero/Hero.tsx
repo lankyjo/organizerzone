@@ -3,14 +3,18 @@ import Performance from "./Performance";
 import { Box } from "@mantine/core";
 import Link from "next/link";
 import VideoCard from "../VideoCard";
+import useAppContext from "../utils/hooks/useAppContext";
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState("");
   const [playingVideo, setPlayingVideo] = useState<string | null>(null); // Track playing video
+  const { events, organizer, classifyEvents } = useAppContext();
 
   useEffect(() => {
     const handleResize = () => {
-      setVideoSrc(window.innerWidth >= 1024 ? "/hero-desktop1.mp4" : "/placeholder1.mp4");
+      setVideoSrc(
+        window.innerWidth >= 1024 ? "/hero-desktop1.mp4" : "/placeholder1.mp4"
+      );
     };
 
     handleResize();
@@ -53,14 +57,19 @@ const Hero = () => {
                 where music <br /> comes alive
               </h1>
               <p className="max-w-[25rem]">
-                Stay updated on the latest events, explore artist lineups, and immerse yourself in the magic of live music, where every beat and melody brings the stage to life.
+                Stay updated on the latest events, explore artist lineups, and
+                immerse yourself in the magic of live music, where every beat
+                and melody brings the stage to life.
               </p>
               <div className="">
                 <button
                   id="CTA"
                   className="px-5 py-2 bg-primary text-white rounded-3xl cursor-pointer duration-300 hover:text-white"
                 >
-                  <Link className="inline-block w-full h-full" href={"#tickets"}>
+                  <Link
+                    className="inline-block w-full h-full"
+                    href={"#tickets"}
+                  >
                     Explore Events
                   </Link>
                 </button>
@@ -71,7 +80,7 @@ const Hero = () => {
 
         <Box className="font-anton w-full grid gap-6 grid-cols-1 md:grid-cols-4 justify-center">
           <Performance
-            count={150}
+            count={Number(classifyEvents?.upcoming?.length) || 0}
             title="Upcoming Concert"
             images={[
               "https://p-static.ogaticket.com/user/13418887-ff3e-452b-9661-b02611fb9284.webp",
@@ -80,7 +89,7 @@ const Hero = () => {
             ]}
           />
           <Performance
-            count={150}
+            count={Number(organizer?.totalEventsCreated) || 0}
             title="Artist Performed"
             images={[
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwaA8j3JXCUJK6s0E139bWxzBDGcLkBaAaZBUycCpQo-9_9JZf99E2r7QQrTKS7qyNNmk&usqp=CAU",
@@ -89,15 +98,19 @@ const Hero = () => {
             ]}
           />
           <Performance
-            count={1000}
+            count={600}
             title="Ticket Sold"
-            images={["/ticket1.PNG", "/ticket2.PNG", "/ticket3.PNG"]}
+            images={["/ticket1.png", "/ticket2.png", "/ticket3.png"]}
           />
 
           <Box className="relative rounded-3xl overflow-hidden">
             {/* Add the VideoCard Component Here */}
             <VideoCard
-              video={{ id: "event1", videoUrl: "https://www.youtube.com/embed/zm96T-_2edI" }}
+              video={{
+                id: "",
+                videoUrl: "https://www.youtube.com/embed/zm96T-_2edI",
+                img: events[0]?.banner?.url || "/wizkid.webp",
+              }}
               isPlaying={playingVideo === "event1"} // Only play if the current video ID matches
               onPlay={() => handlePlay("event1")} // Play the video
               onPause={handlePause} // Pause the video

@@ -1,14 +1,22 @@
-import Image from 'next/image';
-import React, { useState, useRef, useEffect } from 'react';
-import PlayBtn from '../PlayBtn';
+import Image from "next/image";
+import React, { useState, useRef, useEffect } from "react";
+import PlayBtn from "../PlayBtn";
+import useAppContext from "../utils/hooks/useAppContext";
 
 const Moments = () => {
+  const { classifyEvents } = useAppContext();
+
   // Define the event data array with video URLs
-  const eventVideos = [
-    { id: 'event1', videoUrl: 'https://www.youtube.com/embed/zm96T-_2edI' },
-    { id: 'event2', videoUrl: 'https://www.youtube.com/embed/yrydpvp7eOo' },
-    { id: 'event3', videoUrl: 'https://www.youtube.com/embed/yO6DYZLzwC8' },
-  ];
+  const events =
+    classifyEvents?.past?.length > 3
+      ? classifyEvents?.past?.slice(0, 3)
+      : classifyEvents?.past;
+
+  const eventVideos = events?.map((event, i) => ({
+    id: event.event_title || `event-${i + 1}`,
+    videoUrl: "https://www.youtube.com/embed/zm96T-_2edI",
+    img: event.banner?.url || "/wizkid.webp",
+  }));
 
   // State to track which video is playing
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
@@ -26,7 +34,8 @@ const Moments = () => {
             Live the Moment Again and Again
           </h2>
           <p>
-            Missed the show? Or simply want to experience it all over again? Dive into our exclusive collection of concert videos.
+            Missed the show? Or simply want to experience it all over again?
+            Dive into our exclusive collection of concert videos.
           </p>
         </div>
 
@@ -51,7 +60,7 @@ export default Moments;
 
 // Define the type for the video object
 type VideoProps = {
-  video: { id: string; videoUrl: string };
+  video: { id: string; videoUrl: string; img: string };
   isPlaying: boolean;
   onPlay: () => void;
   onPause: () => void;
@@ -60,21 +69,29 @@ type VideoProps = {
 };
 
 // VideoCard component that shows the image and plays the video when clicked
-const VideoCard: React.FC<VideoProps> = ({ video, isPlaying, onPlay, /*onPause, playingVideo*/ setPlayingVideo }) => {
+const VideoCard: React.FC<VideoProps> = ({
+  video,
+  isPlaying,
+  onPlay,
+  /*onPause, playingVideo*/ setPlayingVideo,
+}) => {
   const videoRef = useRef<HTMLDivElement | null>(null);
 
   // Click outside handler to reset the video
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (videoRef.current && !videoRef.current.contains(event.target as Node)) {
+      if (
+        videoRef.current &&
+        !videoRef.current.contains(event.target as Node)
+      ) {
         setPlayingVideo(null); // Reset the playing video
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [setPlayingVideo]);
 
@@ -91,7 +108,7 @@ const VideoCard: React.FC<VideoProps> = ({ video, isPlaying, onPlay, /*onPause, 
           </div>
           {/* Display a thumbnail or placeholder image */}
           <Image
-            src={'/wizkid.webp'} // Replace with appropriate image for each event
+            src={video?.img} // Replace with appropriate image for each event
             alt="Video thumbnail"
             layout="fill" // Use layout fill to make the image cover the container
             className="w-full h-full absolute object-cover"

@@ -11,6 +11,15 @@ export default function TempValueProvider({
 }) {
   const [organizer, setOrganizer] = useState({} as OrganizerProps);
   const [events, setEvents] = useState([] as EventProps[]);
+  const [classifyEvents, setClassyFieldEVents] = useState<{
+    upcoming: EventProps[];
+    past: EventProps[];
+    today: EventProps[];
+  }>({
+    upcoming: [],
+    past: [],
+    today: [],
+  });
   const [val, setVal] = useState<any>(() => {
     if (typeof window === "undefined") return "";
     try {
@@ -30,7 +39,16 @@ export default function TempValueProvider({
 
   return (
     <TempValueContext.Provider
-      value={{ val, setVal, organizer, setOrganizer, events, setEvents }}
+      value={{
+        val,
+        setVal,
+        organizer,
+        setOrganizer,
+        events,
+        setEvents,
+        classifyEvents,
+        setClassyFieldEVents,
+      }}
     >
       {children}
     </TempValueContext.Provider>
