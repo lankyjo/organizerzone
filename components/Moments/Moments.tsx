@@ -46,7 +46,7 @@ const Moments = () => {
             video={event}
             isPlaying={playingVideo === event.id}
             onPlay={() => setPlayingVideo(event.id)} // Set the currently playing video
-            onPause={() => setPlayingVideo(null)} // Pause the video
+            // onPause={() => setPlayingVideo(null)} // Pause the video
             playingVideo={playingVideo}
             setPlayingVideo={setPlayingVideo}
           />
@@ -58,12 +58,11 @@ const Moments = () => {
 
 export default Moments;
 
-// Define the type for the video object
 type VideoProps = {
   video: { id: string; videoUrl: string; img: string };
   isPlaying: boolean;
   onPlay: () => void;
-  onPause: () => void;
+  // onPause: () => void;
   playingVideo: string | null;
   setPlayingVideo: React.Dispatch<React.SetStateAction<string | null>>;
 };

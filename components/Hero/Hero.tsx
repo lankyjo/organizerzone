@@ -104,7 +104,7 @@ const Hero = () => {
           />
 
           <Box className="relative rounded-3xl overflow-hidden">
-            {/* Add the VideoCard Component Here */}
+            
             <VideoCard
               video={{
                 id: "",
