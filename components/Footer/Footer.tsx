@@ -32,25 +32,31 @@ const Footer = () => {
           <div className="space-y-5">
             <h2 className="font-bold uppercase font-anton">Quick Links</h2>
             <ul className="flex flex-col gap-2">
-              {["login"].map((item, index) => (
+              {["Create Event"].map((item, index) => (
                 <li key={index} className=" capitalize">
-                  <Link href={`/${item}`}>{item}</Link>
+                  <Link href={`https://www.ogaticket.com/e`}>{item}</Link>
                 </li>
               ))}
+              <li className=" capitalize">
+                <Link href={`/e/all`}>Events</Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="flex md:justify-end">
+        <div className="flex md:justify-end" id="contact">
           <div className="space-y-5 lg:col-span-1 md:col-span-2">
             <h2 className="text-3xl uppercase font-bold font-anton">Contact</h2>
             <div className="flex items-center gap-3">
               <FaEnvelope className="text-primary" />
-              <span>info@ogaticket.com</span>
+              <Link href={"mailto:info@ogaticket.com"}>
+                {" "}
+                info@ogaticket.com
+              </Link>
             </div>
             <div className="flex items-center gap-3">
               <FaPhone className="text-primary" />
-              <span>+123 456 7890</span>
+              <Link href={"tel:+123 456 7890"}>+123 456 7890</Link>
             </div>
           </div>
         </div>
@@ -58,12 +64,14 @@ const Footer = () => {
           <div className="space-y-5 lg:col-span-1 md:col-span-2">
             <h2 className="font-bold uppercase font-anton">Powered by:</h2>
             <div>
-              <Image
-                src={"/logo.crop.png"}
-                width={70}
-                height={70}
-                alt="ogaticket logo"
-              />
+              <Link href={process?.env?.NEXT_PUBLIC_PAGE_BASE_URL || ""}>
+                <Image
+                  src={"/logo.crop.png"}
+                  width={70}
+                  height={70}
+                  alt="ogaticket logo"
+                />
+              </Link>
             </div>
           </div>
         </div>

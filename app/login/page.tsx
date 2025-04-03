@@ -2,6 +2,7 @@
 
 import useAppContext from "@/components/utils/hooks/useAppContext";
 import useGetter from "@/components/utils/hooks/useGetter";
+// import { postFunc } from "@/components/utils/request";
 import { useEffect, useState } from "react";
 
 // import { Box } from "@mantine/core";
@@ -28,7 +29,7 @@ export default function LoginPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.data]);
 
-  const [loginData, setLoginData] = useState<{
+  const [, setLoginData] = useState<{
     email: string;
     password: string;
   }>({ email: "", password: "" });
@@ -39,6 +40,14 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // try {
+    //   const data = await postFunc({
+    //     url: "",
+    //     values: {
+    //       ...loginData,
+    //     },
+    //   });
+    // } catch (error) {}
     // Handle login logic here
   };
 
@@ -131,13 +140,7 @@ interface InputProps {
   name?: string;
 }
 
-const InputField = ({
-  type,
-  placeholder,
-  label,
-  handleChange,
-  name,
-}: InputProps) => {
+const InputField = ({ type, placeholder, label, handleChange }: InputProps) => {
   return (
     <div>
       <label

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import Performance from "./Performance";
 import { Box } from "@mantine/core";
 import Link from "next/link";
-import VideoCard from "../VideoCard";
-import useAppContext from "../utils/hooks/useAppContext";
+// import VideoCard from "../VideoCard";
+// import useAppContext from "../utils/hooks/useAppContext";
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState("");
-  const [playingVideo, setPlayingVideo] = useState<string | null>(null); // Track playing video
-  const { events, organizer, classifyEvents } = useAppContext();
+  // const [playingVideo, setPlayingVideo] = useState<string | null>(null); // Track playing video
+  // const { events, organizer, classifyEvents } = useAppContext();
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,13 +23,13 @@ const Hero = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handlePlay = (videoId: string) => {
-    setPlayingVideo(videoId); // Set the current video to play
-  };
+  // const handlePlay = (videoId: string) => {
+  //   setPlayingVideo(videoId); // Set the current video to play
+  // };
 
-  const handlePause = () => {
-    setPlayingVideo(null); // Stop playing
-  };
+  // const handlePause = () => {
+  //   setPlayingVideo(null); // Stop playing
+  // };
 
   return (
     <section className="relative z-10 h-full min-h-screen md:pt-44 pt-30 pb-10 md:mt-0">
@@ -63,8 +63,8 @@ const Hero = () => {
               <p className="md:max-w-[25rem] max-w-[20rem] text-[#f4f2f2c8] text-sm md:text-xl">
                 The Energy Hits Different, Bringing all the Good vibes and
                 sounds from the continent of Africa & Caribbean. Music by the
-                hottest DJ's from EVERY culture Playing the best of #Afrobeat
-                #Amapiano #Dancehall #Reggae #Soca #Kompa
+                hottest DJ&rsquos from EVERY culture Playing the best of
+                #Afrobeat #Amapiano #Dancehall #Reggae #Soca #Kompa
               </p>
               <div className="mt-[50px]">
                 <button

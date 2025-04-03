@@ -12,7 +12,12 @@ import { unavailable } from "../utils/contextAPI/helperFunctions";
 import { format } from "date-fns";
 
 const Artist = () => {
-  const { classifyEvents } = useAppContext();
+  const { classifyEvents, events } = useAppContext();
+
+  const upcoming =
+    classifyEvents?.upcoming?.length > 0
+      ? classifyEvents?.upcoming[0]
+      : events[0];
 
   return (
     <section
@@ -29,42 +34,22 @@ const Artist = () => {
         >
           <div>
             <p className="text-gray-400 tracking-widest capitalize">
-              {classifyEvents?.upcoming[0]?.organizer?.username || unavailable}
+              {upcoming?.organizer?.username || unavailable}
             </p>
             <h2 className="text-4xl font-anton uppercase font-bold md:text-6xl">
-              {classifyEvents?.upcoming[0]?.event_title || unavailable}
+              {upcoming?.event_title || unavailable}
             </h2>
           </div>
           <p className="text-gray-400">
-            {classifyEvents?.upcoming[0]?.description || unavailable}
+            {upcoming?.description || unavailable}
           </p>
-          {/* <div className="space-y-5 text-gray-400">
-            <div className="flex items-center gap-2">
-              <span>
-                <FaCalendar />
-              </span>
-              <span>Saturday, 18 November</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span>
-                <FaClock />
-              </span>
-              <span>7 PM</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span>
-                <FaLocationArrow />
-              </span>
-              <span>Bright Stadium, London</span>
-            </div>
-          </div> */}
 
           <div className="space-y-5 text-gray-400">
             <div className="flex items-center gap-2">
               <span>
                 <FaCalendar />
               </span>
-              {classifyEvents?.upcoming[0]?.startDate ? (
+              {upcoming?.startDate ? (
                 <span>
                   {format(
                     new Date(classifyEvents?.upcoming[0]?.startDate),
@@ -80,7 +65,7 @@ const Artist = () => {
                 <FaClock />
               </span>
 
-              {classifyEvents?.upcoming[0]?.startDate ? (
+              {upcoming?.startDate ? (
                 <span>
                   {format(
                     new Date(classifyEvents?.upcoming[0]?.startDate),
@@ -95,13 +80,13 @@ const Artist = () => {
               <span>
                 <FaLocationArrow />
               </span>
-              <span>{classifyEvents?.upcoming[0]?.venue?.venue}</span>
+              <span>{upcoming?.venue?.venue}</span>
             </div>
           </div>
 
           <div>
             <button className="duration-300 text-white hover:text-white bg-primary px-5 py-2 rounded-4xl">
-              <Link href={"/"}>Get ticket</Link>
+              <Link href={`/e?slug=${upcoming?.slug}`}>Get ticket</Link>
             </button>
           </div>
         </motion.div>
@@ -116,7 +101,7 @@ const Artist = () => {
           <Image
             alt="artist image"
             fill
-            src={classifyEvents?.upcoming[0]?.banner?.url || "/wizkid.webp"}
+            src={upcoming?.banner?.url || "/wizkid.webp"}
             className="absolute object-cover inset-0 rounded-xl"
           />
           {/* Overlay with Spotify details */}
@@ -131,7 +116,7 @@ const Artist = () => {
           </div>
           {/* Overlay with Hit count */}
           <div className="bg-white/50 absolute text-black md:-right-10 -right-5 md:top-10 top-0 flex gap-2 items-center md:py-6 py-3 md:px-8 px-5 rounded-lg z-40">
-            {classifyEvents?.upcoming[0]?.startDate && (
+            {upcoming?.startDate && (
               <div className="flex flex-col text-center">
                 <span className="text-gray-950 md:text-3xl text-xl font-bold">
                   {format(classifyEvents?.upcoming[0]?.startDate, "do")}

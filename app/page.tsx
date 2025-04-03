@@ -9,13 +9,12 @@ import Artist from "@/components/Artist/Artist";
 import CountDown from "@/components/CountDown/CountDown";
 import Footer from "@/components/Footer/Footer";
 import Sponsors from "@/components/Sponsors/Sponsors";
-import Moments from "@/components/Moments/Moments";
+//import Moments from "@/components/Moments/Moments";
 import { classifyEvents } from "@/components/utils/contextAPI/helperFunctions";
 import TicketsSection from "@/components/Ticket-section/TicketsSection";
 
 export default function Home() {
-  const { setEvents, setOrganizer, setClassyFieldEVents, setVal } =
-    useAppContext();
+  const { setEvents, setOrganizer, setClassyFieldEVents } = useAppContext();
   const { data: eventData } = useGetter(
     `event/user-events/${process.env.NEXT_PUBLIC_USER_ID}`
   );

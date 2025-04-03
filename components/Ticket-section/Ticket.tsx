@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import { FaCalendarAlt, FaMap } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface TicketProps {
   imageUrl: string;
@@ -9,6 +11,7 @@ interface TicketProps {
   date: string;
   venue: string;
   description: string;
+  slug: string;
 }
 
 const itemVariants = {
@@ -16,7 +19,15 @@ const itemVariants = {
   show: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
-const Ticket = ({ imageUrl, price, title, date, venue, description }: TicketProps) => {
+const Ticket = ({
+  imageUrl,
+  price,
+  title,
+  date,
+  venue,
+  description,
+  slug,
+}: TicketProps) => {
   return (
     <motion.li
       id="tickets"
@@ -38,7 +49,9 @@ const Ticket = ({ imageUrl, price, title, date, venue, description }: TicketProp
       {/* Ticket Info Section */}
       <div className="flex-1">
         <div className="flex max-sm:flex-col items-center max-sm:items-start justify-between border-b-2 border-white pb-2">
-          <h3 className="text-3xl uppercase max-sm:text-xl font-anton font-extrabold">{title}</h3>
+          <h3 className="text-3xl uppercase max-sm:text-xl font-anton font-extrabold">
+            {title}
+          </h3>
           <p className="flex gap-1 items-baseline">
             <span className="font-bold text-2xl font-anton">{price}</span>
             <span>/</span>
@@ -63,8 +76,9 @@ const Ticket = ({ imageUrl, price, title, date, venue, description }: TicketProp
           {/* Action Buttons */}
           <div className="flex justify-end max-sm:text-sm gap-10 max-sm:justify-between max-sm:gap-0">
             <button className="py-2 px-5 max-sm:text-[8px] bg-primary text-white rounded-3xl transition duration-300 hover:text-gray-200">
-              Get Ticket
+              <Link href={`/e?slug=${slug}`}>Get Ticket</Link>
             </button>
+
             {/* <button className="shadow shadow-primary bg-transparent rounded-3xl py-2 px-5 max-sm:text-[8px] border border-primary transition duration-300 hover:bg-primary hover:text-white">
               Info Detail
             </button> */}

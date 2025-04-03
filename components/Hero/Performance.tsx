@@ -41,7 +41,7 @@ export default function Performance({
   }, [value, count]);
 
   return (
-    <div className="relative -z-10 flex md:flex-col justify-between mb-[30px]">
+    <div className="relative -z-10 flex md:flex-col justify-between mb-[30px] gap-5">
       <Avatar.Group>
         {images?.map((image, index) => (
           <Avatar

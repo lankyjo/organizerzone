@@ -1,13 +1,14 @@
-import {} from "@mantine/hooks";
 import { Drawer } from "@mantine/core";
 import NavItem from "./NavItem";
 
 export default function NavDraw({
   opened,
   close,
+  setOpenModal,
 }: {
   opened: boolean;
   close: () => void;
+  setOpenModal: (val: boolean) => void;
 }) {
   return (
     <>
@@ -16,7 +17,7 @@ export default function NavDraw({
         onClose={close}
         lockScroll={false}
         position="top"
-        size="30%"
+        size="45%"
         styles={{
           body: {
             // backgroundColor: "red",
@@ -41,6 +42,16 @@ export default function NavDraw({
         <div>
           {/* Drawer content */}
           <NavItem />
+          <button
+            id="CTA"
+            onClick={() => {
+              close();
+              setOpenModal(true);
+            }}
+            className="px-5 text-white py-2 mt-4 bg-primary rounded-3xl cursor-pointer duration-300 hover:text-white "
+          >
+            Create Event
+          </button>
         </div>
       </Drawer>
     </>

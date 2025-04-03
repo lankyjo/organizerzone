@@ -1,3 +1,6 @@
+import { ReactNode } from "react";
+import { notifications } from "@mantine/notifications";
+
 export function checkEventType(
   eventType: string,
   venue: {
@@ -121,3 +124,57 @@ function getCurrentLocalTimeISO(timeZone: string) {
 }
 export const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 export const localTimeISO = getCurrentLocalTimeISO(timeZone);
+
+export function customNotification(
+  title: string,
+  message: string,
+  color: string,
+  icon?: ReactNode
+  // naviagate?: () => void
+) {
+  return notifications.show({
+    title,
+    message,
+    color,
+    icon: icon,
+    autoClose: 3000,
+    styles: () => ({
+      title: {
+        fontSize: 20,
+        textTransform: "capitalize",
+        fontFamily: "poppins-bold",
+      },
+    }),
+  });
+}
+
+export function customErrorFunc(error: any, icon?: ReactNode) {
+  console.error(error);
+  if (!error?.response) customNotification("error", error.message, "red", icon);
+  else customNotification("error", error?.response.data.message, "red", icon);
+}
+
+export const getFilteredEvents = ({
+  events,
+  upcoming,
+}: {
+  events: EventProps[];
+  upcoming: EventProps[];
+}) => {
+  const upcomingEvents = upcoming || [];
+  const allEvents = events || [];
+
+  const filterEvents = (eventList: EventProps[]) => {
+    if (eventList.length > 4) {
+      return eventList.slice(1, 4);
+    } else if (eventList.length > 0) {
+      return eventList;
+    }
+    return [];
+  };
+
+  const filteredUpcoming = filterEvents(upcomingEvents);
+  return filteredUpcoming.length > 0
+    ? filteredUpcoming
+    : filterEvents(allEvents);
+};

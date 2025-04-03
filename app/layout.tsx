@@ -4,6 +4,7 @@ import "./globals.css";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import TempValueProvider from "@/components/utils/contextAPI/TempValueContext";
+import Nav from "@/components/Navigation/Nav";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={inter.variable}>
         <TempValueProvider>
           <MantineProvider defaultColorScheme="auto">
+            <Nav />
             {children}
           </MantineProvider>
         </TempValueProvider>

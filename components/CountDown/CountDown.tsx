@@ -2,14 +2,19 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { localTimeISO, timeZone } from "../utils/contextAPI/helperFunctions";
 import useAppContext from "../utils/hooks/useAppContext";
+import Link from "next/link";
 
 const CountDown = () => {
-  const { classifyEvents } = useAppContext();
-  const count_down =
-    classifyEvents?.upcoming[0]?.startDate || new Date().toISOString();
-  const status = classifyEvents?.upcoming[0]?.status || "published";
-  const startDate = classifyEvents?.upcoming[0]?.startDate || new Date();
-  const endDate = classifyEvents?.upcoming[0]?.endDate || new Date();
+  const { classifyEvents, events } = useAppContext();
+
+  const allEvents =
+    classifyEvents?.upcoming?.length > 0 ? classifyEvents?.upcoming : events;
+
+  const count_down = allEvents[0]?.startDate || new Date().toISOString();
+  const status = allEvents[0]?.status || "published";
+  const startDate = allEvents[0]?.startDate || new Date();
+  const endDate = allEvents[0]?.endDate || new Date();
+  const slug = allEvents[0]?.slug;
 
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -122,7 +127,7 @@ const CountDown = () => {
 
           <div className="text-black">
             <button className="px-4 py-2 bg-primary rounded-4xl text-white">
-              Book Ticket
+              <Link href={`/e?slug=${slug}`}>Book Ticket</Link>
             </button>
           </div>
         </div>

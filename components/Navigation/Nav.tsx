@@ -7,11 +7,12 @@ import { useEffect, useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import NavDraw from "./NavDraw";
 import NavItem from "./NavItem";
-import { Avatar } from "@mantine/core";
+import { Modal } from "@mantine/core";
 
 const Nav = () => {
   const [scrollY, setScrollY] = useState(0);
   const [opened, { open, close }] = useDisclosure(false);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,23 +56,50 @@ const Nav = () => {
           )}
 
           <div className="  items-center gap-2 hidden md:flex">
-            <Avatar
+            {/* <Avatar
               variant="filled"
               radius="xl"
               size={33}
               className=" cursor-pointer"
-            />
+            /> */}
             <button
               id="CTA"
+              onClick={() => setOpenModal(true)}
               className="px-5 text-white py-2 bg-primary rounded-3xl cursor-pointer duration-300 hover:text-white hidden  md:block"
-              style={{ opacity: buttonOpacity }}
             >
-              <Link href="#artist"> Get started</Link>
+              Create Event
             </button>
           </div>
         </nav>
       </header>
-      <NavDraw opened={opened} close={close} />
+      <NavDraw opened={opened} close={close} setOpenModal={setOpenModal} />
+
+      <Modal
+        withCloseButton={false}
+        opened={openModal}
+        onClose={() => setOpenModal(false)}
+        size={"xs"}
+        centered
+        styles={{
+          content: {
+            backgroundColor: "rgba(75, 85, 99, 1)",
+          },
+          overlay: {
+            backgroundColor: "transparent", // Slight transparency
+          },
+        }}
+      >
+        <p>You will be redirect to Ogaticket to create event</p>
+        <div className=" flex justify-end">
+          <button
+            id="CTA"
+            onClick={() => setOpenModal(true)}
+            className="px-5 text-white py-2 bg-primary rounded-3xl cursor-pointer duration-300 hover:text-white "
+          >
+            <Link href={"https://www.ogaticket.com/e"}>Ok</Link>
+          </button>
+        </div>
+      </Modal>
     </>
   );
 };
